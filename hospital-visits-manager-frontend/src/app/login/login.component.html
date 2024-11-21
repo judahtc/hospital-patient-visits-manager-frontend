@@ -5,15 +5,32 @@
     <form action="#" [formGroup]="form">
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
-        <input type="email" id="email" formControlName="email"
+        <input type="email" id="email" formControlName="email" [ngClass]="{'border-red-400':email_error}"
           class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-100 focus:outline-none focus:ring-black focus:border-black"
           placeholder="your@email.com" required>
+
+        @if(email_error) {<div class="flex items-center space-x-1 mt-2">
+          <div class="flex items-center justify-center w-3 h-3 text-white text-[55%] font-bold bg-red-500 rounded-full">
+            !
+          </div>
+
+          <span class="text-xs text-red-500">Couldnt find your Account</span>
+        </div>}
+
       </div>
       <div class="mb-4">
         <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
-        <input type="password" id="password" formControlName="password" [ngClass]="{'border-red-400':true}"
+        <input type="password" id="password" formControlName="password" [ngClass]="{'border-red-400':password_error}"
           class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-100 focus:outline-none focus:ring-black focus:border-black"
           placeholder="Enter your password" required>
+
+        @if(password_error) {<div class="flex items-center space-x-1 mt-2">
+          <div class="flex items-center justify-center w-3 h-3 text-white text-[55%] font-bold bg-red-500 rounded-full">
+            !
+          </div>
+
+          <span class="text-xs text-red-500">Wrong password. Try again or click Forgot password to reset it</span>
+        </div>}
         <a href="#"
           class="text-xs text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">Forgot
           Password?</a>
