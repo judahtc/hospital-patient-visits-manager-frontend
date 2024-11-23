@@ -11,6 +11,7 @@
             <path d="M20 21a8 8 0 0 0-16 0" />
           </svg>
         </div>
+
         <div class="mt-2 text-sm font-semibold">JUDAH CHISARE</div>
       </div>
       <div style="background-color: whitesmoke;line-height: 1px;margin-top: 1rem;">
@@ -21,9 +22,9 @@
       <DIV class="ml-2 mt-7">
 
         <ul class=" text-sm font-bold">
-          <a href="/portal/dashboard">
-            <li
-              class="px-4 bg-orange-50 mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
+          <a href="/portal/dashboard?tab=dashboard">
+            <li class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50"
+              [class.selected]="dashboard">
 
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -36,8 +37,9 @@
               <span>Dashboard</span>
             </li>
           </a>
-          <a href="/portal/patients">
-            <li class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
+          <a href="/portal/patients?tab=patients">
+            <li [class.selected]="patients"
+              class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
 
 
 
@@ -58,8 +60,9 @@
             </li>
 
           </a>
-          <a href="/portal/visits">
-            <li class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
+          <a href="/portal/visits?tab=visits">
+            <li [class.selected]="visits"
+              class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-shield-check">
@@ -87,8 +90,9 @@
             &nbsp;
           </div>
 
-          <a href="/portal/users">
-            <li class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
+          <a href="/portal/users?tab=users">
+            <li [class.selected]="users"
+              class="px-4  mr-2 py-2 rounded-[0.3rem] flex items-center space-x-3 mb-2 hover:bg-orange-50">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-users">
