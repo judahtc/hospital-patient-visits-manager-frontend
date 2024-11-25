@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class PatientService {
+export class VisitService {
   constructor(private http: HttpClient) {}
 
   confirm_patient(patient_id: string) {
-    this.http.get(
-      'http://localhost:8000//visitors/by-national-id/' + patient_id
+    return this.http.get(
+      'http://localhost:8000/visitors/by-national-id/' + patient_id
     );
   }
 }
