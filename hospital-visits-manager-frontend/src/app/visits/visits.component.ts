@@ -19,6 +19,7 @@ export class VisitsComponent implements OnInit {
   visitor: any;
   searched = false;
   form!: FormGroup;
+  not_found = false;
 
   constructor(private visitService: VisitService, private fb: FormBuilder) {}
 
@@ -31,13 +32,18 @@ export class VisitsComponent implements OnInit {
   }
 
   search_visitor() {
-    this.searched = true;
     this.visitService.confirm_patient(this.form.value['visitor_id']).subscribe({
       next: (result) => {
+        this.searched = true;
+        this.not_found = false;
         this.visitor = result;
       },
       error: (error) => {
         console.log(error);
+        if (error.status == 404) {
+          this.not_found = true;
+          this.searched = false;
+        }
       },
     });
   }

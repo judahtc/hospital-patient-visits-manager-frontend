@@ -21,7 +21,7 @@
 
               <input
                 class="border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                id="visitor_id" placeholder="63-886161z63" name="visitor_id" formControlName="visitor_id" />
+                id="visitor_id" placeholder="63-886161z63" name="visitor_id" formControlName="visitor_id" required />
             </div>
           </div>
           <!-- Search button -->
@@ -29,6 +29,19 @@
             class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
             type="submit" (click)=" search_visitor()">SEARCH</button>
         </div>
+
+        @if(not_found){
+        <div
+          class="not_found text-sm -mt-4 mb-3 bg-red-100  w-full text-center py-[0.75rem] rounded-md  bg-opacity-45 text-gray-700 flex items-center justify-center space-x-3 mx-auto"
+          style="font-weight: 550;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-circle-alert">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" x2="12" y1="8" y2="12" />
+            <line x1="12" x2="12.01" y1="16" y2="16" />
+          </svg> <span>Visitor not found!!!</span>
+        </div>}
       </form>
 
     </div>
@@ -116,4 +129,6 @@
   </div>
 
   }
+
+
 </body>
