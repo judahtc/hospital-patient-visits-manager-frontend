@@ -1,1 +1,59 @@
-<p>patients works!</p>
+<div class="flex justify-between items-center mx-3 mt-2">
+  <div>
+    Patients
+  </div>
+  <div>
+    Add
+  </div>
+</div>
+<div style="background-color: whitesmoke;line-height: 1px;" class="mb-6 mt-3">
+  &nbsp;
+</div>
+
+
+<div class="border rounded-md lg:w-[97%] mx-auto container md:w-full sm:w-full shadow-sm">
+  <table class="w-full">
+    <thead>
+      <tr class="border-b text-left">
+
+      </tr>
+    </thead>
+    <tbody>
+
+      @for(patient of patient;track 1){
+      <tr class="border-b text-sm bg-white">
+        <td class="px-3 py-2.5">{{patient.name}}</td>
+        <td class="px-3 py-2.5">{{patient.phone_number}}</td>
+
+        <td class="px-3 py-2.5">{{patient.email}}</td>
+        <td class="px-3 py-2.5">{{patient.ward_number}}</td>
+        <td class="px-3 py-2.5">{{patient.room_number}}</td>
+        <td class="px-3 py-2.5">{{patient.checkin_date}}</td>
+        <td class="px-3 py-2.5">{{patient.checkout_date}}</td>
+
+        <td class="px-3 py-2.5"><button class="bg-transparent text-sm ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+              stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-download">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
+            </svg></button></td>
+        <td class="px-3 py-2.5 hover:cursor-pointer">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-ellipsis-vertical">
+            <circle cx="12" cy="12" r="1" />
+            <circle cx="12" cy="5" r="1" />
+            <circle cx="12" cy="19" r="1" />
+          </svg>
+
+
+        </td>
+
+      </tr>}
+    </tbody>
+  </table>
+
+</div>
