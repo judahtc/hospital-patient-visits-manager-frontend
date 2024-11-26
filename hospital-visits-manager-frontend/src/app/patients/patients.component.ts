@@ -56,4 +56,5 @@ export class PatientsComponent {
       checkout_date: '2024-11-22T11:00:00',
     },
   ];
+  columnNames = Object.keys(this.patient[0]);
 }

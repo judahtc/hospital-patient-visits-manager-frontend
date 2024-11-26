@@ -19,25 +19,31 @@
 </div>
 
 
-<div class="border rounded-lg lg:w-[97%] mx-auto container md:w-full sm:w-full ">
-  <table class="w-full">
+<div class="border border-gray-100 rounded-lg lg:w-[98%] mx-auto container md:w-full sm:w-full mt-9">
+  <table class="main-table w-full text-sm">
     <thead>
-      <tr class="border-b text-left">
-
+      <tr class="border-b   border-gray-100 text-left">
+        <th class="py-2.5 px-3 ">{{columnNames[0]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[1]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[2]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[3]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[4]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[5]}}</th>
+        <th class="py-2.5 px-3 ">{{columnNames[6]}}</th>
       </tr>
     </thead>
     <tbody>
 
       @for(patient of patient;track 1){
-      <tr class="border-b text-sm bg-white">
-        <td class="px-3 py-2.5">{{patient.name}}</td>
-        <td class="px-3 py-2.5">{{patient.phone_number}}</td>
+      <tr class="border-b border-gray-100 text-sm bg-white">
+        <td class="px-3 text-sm py-2.5">{{patient.name}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.phone_number}}</td>
 
-        <td class="px-3 py-2.5">{{patient.email}}</td>
-        <td class="px-3 py-2.5">{{patient.ward_number}}</td>
-        <td class="px-3 py-2.5">{{patient.room_number}}</td>
-        <td class="px-3 py-2.5">{{patient.checkin_date}}</td>
-        <td class="px-3 py-2.5">{{patient.checkout_date}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.email}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.ward_number}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.room_number}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.checkin_date}}</td>
+        <td class="px-3 text-sm py-2.5">{{patient.checkout_date}}</td>
 
         <td class="px-3 py-2.5"><button class="bg-transparent text-sm ">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
