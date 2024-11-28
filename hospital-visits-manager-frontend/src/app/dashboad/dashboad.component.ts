@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboad',
@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './dashboad.component.html',
   styleUrl: './dashboad.component.css',
 })
-export class DashboadComponent {
+export class DashboadComponent implements OnInit {
+  ngOnInit(): void {}
   patient = [
     {
       name: 'John Doe',
