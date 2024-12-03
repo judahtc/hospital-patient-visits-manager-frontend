@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class PatientsComponent {
   patient = [
     {
+      id: 1,
       name: 'John Doe',
       phone_number: '1234567890',
       email: 'johndoe@example.com',
@@ -20,6 +21,7 @@ export class PatientsComponent {
       checkout_date: '2024-11-10T14:00:00',
     },
     {
+      id: 2,
       name: 'Jane Smith',
       phone_number: '0987654321',
       email: 'janesmith@example.com',
@@ -29,6 +31,7 @@ export class PatientsComponent {
       checkout_date: null,
     },
     {
+      id: 3,
       name: 'David Johnson',
       phone_number: '5551234567',
       email: 'david.johnson@example.com',
@@ -38,6 +41,7 @@ export class PatientsComponent {
       checkout_date: '2024-11-05T16:45:00',
     },
     {
+      id: 4,
       name: 'Emily Brown',
       phone_number: '9876543210',
       email: 'emily.brown@example.com',
@@ -47,6 +51,7 @@ export class PatientsComponent {
       checkout_date: null,
     },
     {
+      id: 5,
       name: 'Michael White',
       phone_number: '1230984567',
       email: 'michael.white@example.com',
@@ -57,4 +62,24 @@ export class PatientsComponent {
     },
   ];
   columnNames = Object.keys(this.patient[0]);
+
+  onCheckboxChange(event: Event, rowId: any): void {
+    const checkbox = event.target as HTMLInputElement;
+    let selectedIds: number[] = JSON.parse(
+      localStorage.getItem('selectedIds') || '[]'
+    );
+
+    if (checkbox.checked) {
+      // Add the ID to localStorage if not already present
+      if (!selectedIds.includes(rowId)) {
+        selectedIds.push(rowId);
+      }
+    } else {
+      // Remove the ID from localStorage
+      selectedIds = selectedIds.filter((id) => id !== rowId);
+    }
+
+    // Update localStorage
+    localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
+  }
 }

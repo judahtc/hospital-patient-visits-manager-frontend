@@ -93,7 +93,7 @@
       @for(patient of patient;track 1){
       <tr class="border-b border-gray-100 text-sm bg-white ">
         <td class="px-3 text-sm py-3">
-          <input type="checkbox" class="form-checkbox h-4 w-4 text-gray-200 border border-gray-100 ">
+          <input type="checkbox" class=" h-4 w-4 " (change)="onCheckboxChange($event, patient.id)">
 
 
         </td>
