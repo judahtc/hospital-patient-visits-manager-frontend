@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PatientService } from '../patient.service';
 
 @Component({
   selector: 'app-patients',
@@ -8,7 +9,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css',
 })
-export class PatientsComponent {
+export class PatientsComponent implements OnInit {
+  constructor(private patientService: PatientService) {}
+  ngOnInit(): void {}
   patient = [
     {
       id: 1,
@@ -81,5 +84,23 @@ export class PatientsComponent {
 
     // Update localStorage
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
+  }
+  delete_user() {
+    let user_ids = JSON.parse(localStorage.getItem('selectedIds') || '[]'); // Parse the IDs from localStorage
+
+    if (Array.isArray(user_ids) && user_ids.length > 0) {
+      user_ids.forEach((id) => {
+        this.patientService.deletePatient(id).subscribe({
+          next: (res) => {
+            console.log(`Deleted user with ID`);
+          },
+          error: (err) => {
+            console.error(`Failed to delete user with ID`);
+          },
+        });
+      });
+    } else {
+      console.warn('No user IDs found to delete.');
+    }
   }
 }

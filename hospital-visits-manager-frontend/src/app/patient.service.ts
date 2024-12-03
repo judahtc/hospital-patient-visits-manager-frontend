@@ -12,4 +12,9 @@ export class PatientService {
       'http://localhost:8000//visitors/by-national-id/' + patient_id
     );
   }
+  deletePatient(id: any) {
+    return this.http.get(
+      'http://localhost:8000//visitors/by-national-id/' + id
+    );
+  }
 }
