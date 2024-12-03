@@ -10,6 +10,7 @@ import { PatientService } from '../patient.service';
   styleUrl: './patients.component.css',
 })
 export class PatientsComponent implements OnInit {
+  not_checked = true;
   constructor(private patientService: PatientService) {}
   ngOnInit(): void {}
   patient = [
@@ -73,7 +74,6 @@ export class PatientsComponent implements OnInit {
     );
 
     if (checkbox.checked) {
-      // Add the ID to localStorage if not already present
       if (!selectedIds.includes(rowId)) {
         selectedIds.push(rowId);
       }
@@ -82,6 +82,11 @@ export class PatientsComponent implements OnInit {
       selectedIds = selectedIds.filter((id) => id !== rowId);
     }
 
+    if (selectedIds.length > 0) {
+      this.not_checked = false;
+    } else {
+      this.not_checked = true;
+    }
     // Update localStorage
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
   }

@@ -35,18 +35,9 @@
 
     <div class="flex items-center space-x-1 mr-3">
 
-      <button
-        class="bg-transparent border border-gray-100 rounded-md py-1 px-2 text-sm flex items-center space-x-[2px]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-          class="lucide lucide-file-pen-line">
-          <path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
-          <path
-            d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-          <path d="M8 18h1" />
-        </svg> <span> Edit </span></button>
-      <button
-        class="bg-transparent border border-red-300 rounded-md py-[0.20rem] px-2 text-sm flex items-center space-x-[2px] text-red-500"><svg
+
+      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed':not_checked}" [disabled]="not_checked"
+        class="bg-transparent border border-red-300 rounded-md py-[0.17rem] px-2 text-sm flex items-center space-x-[2px] text-red-500"><svg
           xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
           class="lucide lucide-trash-2">
@@ -56,7 +47,8 @@
           <line x1="10" x2="10" y1="11" y2="17" />
           <line x1="14" x2="14" y1="11" y2="17" />
         </svg> <span> Delete</span></button>
-      <button
+      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':not_checked}"
+        [disabled]="not_checked"
         class="bg-transparent border border-gray-100 rounded-md py-1 px-2 text-sm flex items-center space-x-[2px]"><svg
           xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -66,6 +58,18 @@
           <path d="m15 11-6 6" />
           <path d="m9 11 6 6" />
         </svg> <span>Discharge</span></button>
+
+      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':not_checked}"
+        [disabled]="not_checked"
+        class="bg-transparent border border-gray-100 rounded-md py-1 px-2 text-sm flex items-center space-x-[2px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-file-pen-line">
+          <path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+          <path
+            d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+          <path d="M8 18h1" />
+        </svg> <span> Edit </span></button>
 
     </div>
   </div>
