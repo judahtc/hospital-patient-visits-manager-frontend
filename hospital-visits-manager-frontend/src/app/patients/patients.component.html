@@ -94,7 +94,7 @@
     </thead>
     <tbody>
 
-      @for(patient of patient;track 1){
+      @for(patient of collection;track 1){
       <tr class="border-b border-gray-100 text-sm bg-white ">
         <td class="px-3 text-sm py-3">
           <input type="checkbox" class=" h-4 w-4 " (change)="onCheckboxChange($event, patient.id)">
@@ -135,4 +135,22 @@
     </tbody>
   </table>
 
+
+</div>
+
+<div class="flex justify-start mt-8 ml-3">
+  <ul class="inline-flex items-center -space-x-px text-sm">
+    <li class="border px-2 py-1 rounded-l-md cursor-pointer" [class.hidden]="p === 1"
+      (click)="p > 1 && changePage(p - 1)">
+      prev
+    </li>
+    <li *ngFor="let page of data_list" class="border px-2 py-1 cursor-pointer"
+      [ngClass]="{ 'text-gray-500': page === p }" (click)="changePage(page)">
+      {{ page }}
+    </li>
+    <li class="border px-2 py-1 rounded-r-md cursor-pointer" [class.hidden]="p === this.len"
+      (click)="p < collection.length && changePage(p + 1)">
+      next
+    </li>
+  </ul>
 </div>
