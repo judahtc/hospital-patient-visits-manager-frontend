@@ -5,9 +5,11 @@ import { DashboadComponent } from './dashboad/dashboad.component';
 import { PatientsComponent } from './patients/patients.component';
 import { VisitsComponent } from './visits/visits.component';
 import { UsersComponent } from './users/users.component';
+import { VisitorsComponent } from './visitors/visitors.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'visitors', component: VisitorsComponent },
   {
     path: 'portal',
     component: PortalComponent,
