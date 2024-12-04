@@ -146,6 +146,15 @@ export class PatientsComponent implements OnInit {
   ];
   columnNames = Object.keys(this.patient[0]);
 
+  showModal = false;
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
   onCheckboxChange(event: Event, rowId: any): void {
     const checkbox = event.target as HTMLInputElement;
     let selectedIds: number[] = JSON.parse(

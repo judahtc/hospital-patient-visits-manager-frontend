@@ -3,7 +3,8 @@
     Patients
   </div>
   <div class="">
-    <button class="bg-[#0f172a] flex items-center space-x-1 text-sm text-white px-2 py-1 rounded-md"> <span>Add</span>
+    <button (click)="openModal()"
+      class="bg-[#0f172a] flex items-center space-x-1 text-sm text-white px-2 py-1 rounded-md"> <span>Add</span>
 
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
@@ -153,4 +154,43 @@
       next
     </li>
   </ul>
+</div>
+
+
+<div *ngIf="showModal"
+  class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
+  <!-- Modal content -->
+  <div class="w-[450px] bg-white shadow-md rounded-md mb-48">
+    <div class="p-4 border-b">
+      <h2 class="text-lg font-semibold">Create project</h2>
+      <p class="text-sm text-gray-500">Deploy your new project in one-click.</p>
+    </div>
+    <div class="p-4">
+      <form>
+        <div class="grid w-full items-center gap-4">
+          <div class="flex flex-col space-y-1.5">
+            <label for="name" class="text-sm font-medium">Name</label>
+            <input id="name" type="text" placeholder="Name of your project" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex flex-col space-y-1.5">
+            <label for="framework" class="text-sm font-medium">Framework</label>
+            <select id="framework" class="border rounded px-3 py-2 text-sm">
+              <option value="" disabled selected>Select</option>
+              <option value="next">Next.js</option>
+              <option value="sveltekit">SvelteKit</option>
+              <option value="astro">Astro</option>
+              <option value="nuxt">Nuxt.js</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="p-4 flex justify-between border-t">
+      <button class="text-sm px-4 py-2 border rounded text-gray-700 hover:bg-gray-50"
+        (click)="showModal=false">Cancel</button>
+      <button
+        class="text-sm px-4 py-2 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Deploy</button>
+    </div>
+  </div>
+
 </div>
