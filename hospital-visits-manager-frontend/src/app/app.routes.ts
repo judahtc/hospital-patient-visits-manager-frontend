@@ -15,18 +15,22 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboadComponent,
+        data: { breadcrumb: 'dashboard' },
       },
       {
         path: 'patients',
         component: PatientsComponent,
+        data: { breadcrumb: 'patients' },
       },
       {
         path: 'visits',
         component: VisitsComponent,
+        data: { breadcrumb: 'visits' },
       },
       {
         path: 'users',
         component: UsersComponent,
+        data: { breadcrumb: 'users' },
       },
     ],
   },

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, Route, Router, ActivatedRoute } from '@angular/router';
+
+interface Breadcrumb {
+  label: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-portal',
   standalone: true,
