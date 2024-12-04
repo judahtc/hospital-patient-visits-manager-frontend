@@ -162,15 +162,37 @@
   <!-- Modal content -->
   <div class="w-[450px] bg-white shadow-md rounded-md mb-48">
     <div class="p-4 border-b">
-      <h2 class="text-lg font-semibold">Create project</h2>
-      <p class="text-sm text-gray-500">Deploy your new project in one-click.</p>
+      <h2 class="text-lg font-semibold">Add Patient</h2>
+      <p class="text-sm text-gray-500">Add a new patient in one-click.</p>
     </div>
     <div class="p-4">
       <form>
         <div class="grid w-full items-center gap-4">
           <div class="flex flex-col space-y-1.5">
-            <label for="name" class="text-sm font-medium">Name</label>
-            <input id="name" type="text" placeholder="Name of your project" class="border rounded px-3 py-2 text-sm" />
+            <label for="firstname" class="text-sm font-medium">First Name</label>
+            <input id="firstname" formControlName="first_name" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex flex-col space-y-1.5">
+            <label for="lastname" class="text-sm font-medium">Last Name</label>
+            <input id="lastname" formControlName="last_name" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex items-center space-x-2">
+            <div class="flex flex-col space-y-1.5 w-2/3">
+              <label for="ward" class="text-sm font-medium">Ward</label>
+              <input id="ward" formControlName="ward_number" type="text" class="border rounded px-3 py-2 text-sm" />
+            </div>
+            <div class="flex flex-col space-y-1.5 w-1/3">
+              <label for="ward" class="text-sm font-medium">Room</label>
+              <input id="ward" formControlName="ward_number" type="text" class="border rounded px-3 py-2 text-sm" />
+            </div>
+          </div>
+          <div class="flex flex-col space-y-1.5">
+            <label for="email" class="text-sm font-medium">Email Address</label>
+            <input id="email" formControlName="email" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex flex-col space-y-1.5">
+            <label for="phone" class="text-sm font-medium">Phone Number</label>
+            <input id="phone" formControlName="phone_number" type="text" class="border rounded px-3 py-2 text-sm" />
           </div>
           <div class="flex flex-col space-y-1.5">
             <label for="framework" class="text-sm font-medium">Framework</label>
