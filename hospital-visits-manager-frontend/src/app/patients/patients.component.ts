@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PatientService } from '../patient.service';
+import { Router } from '@angular/router';
+import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css',
 })
 export class PatientsComponent implements OnInit {
   data_list: any[] = [];
   len: number = 0;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 6;
   changePage(page: number) {
     this.p = page;
   }
@@ -26,7 +28,10 @@ export class PatientsComponent implements OnInit {
   collection: any[] = this.data;
 
   not_checked = true;
-  constructor(private patientService: PatientService) {}
+  constructor(
+    private patientService: PatientService,
+    private paginationService: PaginationService
+  ) {}
   ngOnInit(): void {
     this.collection = this.patient;
     this.data_list = [];
@@ -80,6 +85,56 @@ export class PatientsComponent implements OnInit {
     },
     {
       id: 5,
+      name: 'Michael White',
+      phone_number: '1230984567',
+      email: 'michael.white@example.com',
+      ward_number: 'E5',
+      room_number: '505',
+      checkin_date: '2024-11-18T14:20:00',
+      checkout_date: '2024-11-22T11:00:00',
+    },
+    {
+      id: 6,
+      name: 'Michael White',
+      phone_number: '1230984567',
+      email: 'michael.white@example.com',
+      ward_number: 'E5',
+      room_number: '505',
+      checkin_date: '2024-11-18T14:20:00',
+      checkout_date: '2024-11-22T11:00:00',
+    },
+    {
+      id: 7,
+      name: 'Michael White',
+      phone_number: '1230984567',
+      email: 'michael.white@example.com',
+      ward_number: 'E5',
+      room_number: '505',
+      checkin_date: '2024-11-18T14:20:00',
+      checkout_date: '2024-11-22T11:00:00',
+    },
+    {
+      id: 8,
+      name: 'Michael White',
+      phone_number: '1230984567',
+      email: 'michael.white@example.com',
+      ward_number: 'E5',
+      room_number: '505',
+      checkin_date: '2024-11-18T14:20:00',
+      checkout_date: '2024-11-22T11:00:00',
+    },
+    {
+      id: 9,
+      name: 'Michael White',
+      phone_number: '1230984567',
+      email: 'michael.white@example.com',
+      ward_number: 'E5',
+      room_number: '505',
+      checkin_date: '2024-11-18T14:20:00',
+      checkout_date: '2024-11-22T11:00:00',
+    },
+    {
+      id: 10,
       name: 'Michael White',
       phone_number: '1230984567',
       email: 'michael.white@example.com',

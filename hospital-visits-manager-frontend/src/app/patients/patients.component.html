@@ -94,7 +94,7 @@
     </thead>
     <tbody>
 
-      @for(patient of collection;track 1){
+      @for(patient of collection| paginate: { itemsPerPage:itemsPerPage, currentPage: p };track 1){
       <tr class="border-b border-gray-100 text-sm bg-white ">
         <td class="px-3 text-sm py-3">
           <input type="checkbox" class=" h-4 w-4 " (change)="onCheckboxChange($event, patient.id)">
