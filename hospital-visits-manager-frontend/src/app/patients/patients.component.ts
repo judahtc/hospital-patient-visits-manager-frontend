@@ -14,7 +14,7 @@ import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 export class PatientsComponent implements OnInit {
   data_list: any[] = [];
   len: number = 0;
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 8;
   changePage(page: number) {
     this.p = page;
   }

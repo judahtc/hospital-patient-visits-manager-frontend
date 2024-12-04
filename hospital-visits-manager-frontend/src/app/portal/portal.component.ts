@@ -14,7 +14,7 @@ export class PortalComponent implements OnInit {
   visits = false;
   users = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       const tab = params.get('tab');
@@ -63,5 +63,10 @@ export class PortalComponent implements OnInit {
     this.patients = false;
     this.visits = false;
     this.users = true;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }
