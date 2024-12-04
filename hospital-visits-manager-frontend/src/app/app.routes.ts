@@ -11,6 +11,7 @@ export const routes: Routes = [
   {
     path: 'portal',
     component: PortalComponent,
+    data: { breadcrumb: 'portal' },
     children: [
       {
         path: 'dashboard',
