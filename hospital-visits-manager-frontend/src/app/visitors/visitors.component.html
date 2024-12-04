@@ -66,7 +66,7 @@
 <div *ngIf="showModal"
   class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
   <!-- Modal content -->
-  <div class="w-[92%] bg-white shadow-md rounded-md mb-12 mt-3">
+  <div class="w-[92%] md:w-[50%] bg-white shadow-md rounded-md mb-12 mt-3">
     <div class="p-4 border-b">
       <h5 class="font-semibold">Add Visitor</h5>
       <p class="text-sm text-gray-500">Add a new visitor in one-click.</p>
@@ -98,7 +98,7 @@
           </div>
           <div class="flex flex-col space-y-1">
             <label for="phone" class="text-sm font-medium">Phone Number</label>
-            <input id="phone" formControlName="phone_number" type="text"
+            <input placeholder="+263777 000 000" id="phone" formControlName="phone_number" type="text"
               class="border rounded px-3 py-2 text-sm w-full" />
           </div>
           <!-- <div class="flex flex-col space-y-1">
