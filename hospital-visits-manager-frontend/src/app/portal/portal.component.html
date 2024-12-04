@@ -121,7 +121,18 @@
     <div class=" w-[85%]">
       <div class="nav flex justify-between items-center px-2 py-3.5 ml-[0.1rem]"
         style="box-shadow:  2px 1px 1px whitesmoke">
-        <div class="text-sm p-1.5 bg-slate-50 px-2 rounded-md" style="color: rgb(119, 136, 153);">portal > dashboard
+        <div class="text-sm p-1.5 bg-slate-50 px-2 rounded-md" style="color: rgb(119, 136, 153);">
+
+          <nav>
+            <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+              <ng-container *ngIf="!last">
+                <a [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a> &gt;
+              </ng-container>
+              <ng-container *ngIf="last">
+                {{ breadcrumb.label }}
+              </ng-container>
+            </ng-container>
+          </nav>
         </div>
         <DIV>
 

@@ -1,27 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, Route, Router, ActivatedRoute } from '@angular/router';
-
-interface Breadcrumb {
-  label: string;
-  url: string;
-}
+import {
+  RouterOutlet,
+  Route,
+  Router,
+  ActivatedRoute,
+  RouterModule,
+} from '@angular/router';
+import { BreadcrumbService } from '../breadcrumb.service';
 
 @Component({
   selector: 'app-portal',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './portal.component.html',
   styleUrl: './portal.component.css',
 })
 export class PortalComponent implements OnInit {
+  breadcrumbs: Array<{ label: string; url: string }> = [];
   dashboard = false;
   patients = false;
   visits = false;
   users = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private breadcrumbService: BreadcrumbService
+  ) {}
   ngOnInit(): void {
+    this.breadcrumbs = this.breadcrumbService.breadcrumbs;
     this.route.queryParamMap.subscribe((params) => {
       const tab = params.get('tab');
       if (tab === 'dashboard') {
