@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ export class LoginComponent implements OnInit {
   password_error = false;
   email_error = false;
   login_error: any;
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.form = this.fb.group({
       email: [''], // default value
@@ -30,6 +35,12 @@ export class LoginComponent implements OnInit {
     this.authService.login_users(this.form.value, 'admin').subscribe({
       next: (result) => {
         console.log(result);
+        this.router.navigate(['/portal/patients'], {
+          queryParams: {
+            tab: 'patients',
+          },
+          queryParamsHandling: 'merge',
+        });
       },
       error: (error) => {
         if (error.status == 401) {
