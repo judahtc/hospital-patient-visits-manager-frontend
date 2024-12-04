@@ -9,6 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './visitors.component.css',
 })
 export class VisitorsComponent {
+  showModal = false;
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
   visitors = [
     {
       name: 'John Doe',

@@ -1,15 +1,15 @@
 <div class="nav flex justify-between items-center px-2 py-2" style="box-shadow:  2px 1px 1px whitesmoke">
   <div class="font-semibold">Visitors</div>
-  <DIV><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-      class="lucide lucide-square-plus">
+  <div class="cursor-pointer" (click)="openModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+      stroke-linejoin="round" class="lucide lucide-square-plus">
       <rect width="18" height="18" x="3" y="3" rx="2" />
       <path d="M8 12h8" />
       <path d="M12 8v8" />
-    </svg></DIV>
+    </svg></div>
 </div>
 
-<div class="flex items-center justify-between mr-4 text-sm mt-5">
+<div class="flex items-center justify-between mr-4 md:mr-5 text-sm mt-5">
   <div></div>
   <div><button
       class="py-[0.2rem] px-1 border border-red-300 rounded-[0.25rem] text-red-400 flex items-center"><span>Remove</span>
@@ -62,3 +62,63 @@
 
   </div>
 </div>}
+
+<div *ngIf="showModal"
+  class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
+  <!-- Modal content -->
+  <div class="w-[350px] bg-white shadow-md rounded-md mb-12 mt-14">
+    <div class="p-4 border-b">
+      <h2 class="text-lg font-semibold">Add Visitor</h2>
+      <p class="text-sm text-gray-500">Add a new patient in one-click.</p>
+    </div>
+    <div class="p-6">
+      <form>
+        <div class="grid w-full items-center gap-4">
+          <div class="flex flex-col space-y-1">
+            <label for="firstname" class="text-sm font-medium">First Name</label>
+            <input id="firstname" formControlName="first_name" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="lastname" class="text-sm font-medium">Last Name</label>
+            <input id="lastname" formControlName="last_name" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex items-center space-x-2">
+            <div class="flex flex-col space-y-1 w-2/3">
+              <label for="ward" class="text-sm font-medium">Ward</label>
+              <input id="ward" formControlName="ward_number" type="text" class="border rounded px-3 py-2 text-sm" />
+            </div>
+            <div class="flex flex-col space-y-1 w-1/3">
+              <label for="ward" class="text-sm font-medium">Room</label>
+              <input id="ward" formControlName="ward_number" type="text" class="border rounded px-3 py-2 text-sm" />
+            </div>
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="email" class="text-sm font-medium">Email Address</label>
+            <input id="email" formControlName="email" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="phone" class="text-sm font-medium">Phone Number</label>
+            <input id="phone" formControlName="phone_number" type="text" class="border rounded px-3 py-2 text-sm" />
+          </div>
+          <!-- <div class="flex flex-col space-y-1">
+            <label for="framework" class="text-sm font-medium">Framework</label>
+            <select id="framework" class="border rounded px-3 py-2 text-sm">
+              <option value="" disabled selected>Select</option>
+              <option value="next">Next.js</option>
+              <option value="sveltekit">SvelteKit</option>
+              <option value="astro">Astro</option>
+              <option value="nuxt">Nuxt.js</option>
+            </select>
+          </div> -->
+        </div>
+      </form>
+    </div>
+    <div class="p-4 flex justify-between border-t">
+      <button class="text-sm px-3 py-1 border rounded text-gray-700 hover:bg-gray-50"
+        (click)="showModal=false">Cancel</button>
+      <button
+        class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
+    </div>
+  </div>
+
+</div>
