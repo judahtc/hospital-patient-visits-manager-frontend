@@ -1,107 +1,110 @@
-<div class="nav flex justify-between items-center px-2 py-2" style="box-shadow:  2px 1px 1px whitesmoke">
-  <div class="font-semibold">Visitors</div>
-  <div class="cursor-pointer" (click)="openModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-      stroke-linejoin="round" class="lucide lucide-square-plus">
-      <rect width="18" height="18" x="3" y="3" rx="2" />
-      <path d="M8 12h8" />
-      <path d="M12 8v8" />
-    </svg></div>
-</div>
+<body class="relative">
+  <div class="nav fixed z-50 top-0 w-full flex justify-between items-center px-2 py-2"
+    style="box-shadow:  2px 1px 1px whitesmoke">
+    <div class="font-semibold">Visitors</div>
+    <div class="cursor-pointer" (click)="openModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" class="lucide lucide-square-plus">
+        <rect width="18" height="18" x="3" y="3" rx="2" />
+        <path d="M8 12h8" />
+        <path d="M12 8v8" />
+      </svg></div>
+  </div>
 
-<div class="flex items-center justify-between mr-4 md:mr-5 text-sm mt-5">
-  <div></div>
-  <div><button
-      class="py-[0.2rem] px-1 border border-red-300 rounded-[0.25rem] text-red-400 flex items-center"><span>Remove</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-        class="lucide lucide-trash-2">
-        <path d="M3 6h18" />
-        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-        <line x1="10" x2="10" y1="11" y2="17" />
-        <line x1="14" x2="14" y1="11" y2="17" />
-      </svg></button></div>
-</div>
+  <div class="flex items-center justify-between mr-4 md:mr-5 text-sm mt-20">
+    <div></div>
+    <div><button
+        class="py-[0.2rem] px-1 border border-red-300 rounded-[0.25rem] text-red-400 flex items-center"><span>Remove</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-trash-2">
+          <path d="M3 6h18" />
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+          <line x1="10" x2="10" y1="11" y2="17" />
+          <line x1="14" x2="14" y1="11" y2="17" />
+        </svg></button></div>
+  </div>
 
 
-@for(visitor of visitors;track 1){<div [ngClass]="{'border-green-300':visitor.visited}"
-  class="border  mt-4 px-4 py-5 rounded-md shadow-neutral-50 lg:w-[97%] md:w-[99%] w-[92%] mx-auto">
-  <div class="flex items-center justify-between w-full">
-    <div class="flex items-start space-x-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
-        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-        class="lucide lucide-circle-user">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="10" r="3" />
-        <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
-      </svg>
-      <div class="flex flex-col items-start -mt-[0.10rem]">
-        <span> {{visitor.name}} </span>
-        <span style="font-size: 70%;"> {{visitor.visit_date}} </span>
+  @for(visitor of visitors;track 1){<div [ngClass]="{'border-green-300':visitor.visited}"
+    class="border  mt-4 px-4 py-5 rounded-md shadow-neutral-50 lg:w-[97%] md:w-[99%] w-[92%] mx-auto">
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-start space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-circle-user">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="10" r="3" />
+          <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
+        </svg>
+        <div class="flex flex-col items-start -mt-[0.10rem]">
+          <span> {{visitor.name}} </span>
+          <span style="font-size: 70%;"> {{visitor.visit_date}} </span>
+
+        </div>
 
       </div>
 
-    </div>
 
 
-
-    <div class="flex items-center justify-between">
-      <label class="relative inline-flex items-center cursor-pointer">
-        <input type="checkbox" class="sr-only peer">
-        <div
-          class="w-9 h-5 md:w-11 md:h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-500 rounded-full peer dark:bg-gray-700 peer-checked:bg-black">
-        </div>
-        <div
-          class="absolute left-0.5 top-0.5 w-4 h-4 md:w-5 md:h-5 bg-white border border-gray-300 rounded-full transition-transform peer-checked:translate-x-full">
-        </div>
-      </label>
-    </div>
-
-
-
-  </div>
-</div>}
-
-<div *ngIf="showModal"
-  class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
-  <!-- Modal content -->
-  <div class="w-[92%] md:w-[50%] bg-white shadow-md rounded-md mb-12 mt-3">
-    <div class="p-4 border-b">
-      <h5 class="font-semibold">Add Visitor</h5>
-      <p class="text-sm text-gray-500">Add a new visitor in one-click.</p>
-    </div>
-    <div class="p-6">
-      <form>
-        <div class="grid w-full items-center gap-4">
-          <div class="flex flex-col space-y-1">
-            <label for="firstname" class="text-sm font-medium">Name</label>
-            <input id="firstname" formControlName="name" type="text" class="border rounded px-3 py-2 text-sm w-full" />
+      <div class="flex items-center justify-between">
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div
+            class="w-9 h-5 md:w-11 md:h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-500 rounded-full peer dark:bg-gray-700 peer-checked:bg-black">
           </div>
+          <div
+            class="absolute left-0.5 top-0.5 w-4 h-4 md:w-5 md:h-5 bg-white border border-gray-300 rounded-full transition-transform peer-checked:translate-x-full">
+          </div>
+        </label>
+      </div>
 
-          <div class="flex items-center space-x-2">
-            <div class="flex flex-col space-y-1 w-2/3">
-              <label for="ward" class="text-sm font-medium">Visit Date</label>
-              <input id="ward" formControlName="ward_number" type="date"
+
+
+    </div>
+  </div>}
+
+  <div *ngIf="showModal"
+    class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
+    <!-- Modal content -->
+    <div class="w-[92%] md:w-[50%] bg-white shadow-md rounded-md mb-12 mt-3">
+      <div class="p-4 border-b">
+        <h5 class="font-semibold">Add Visitor</h5>
+        <p class="text-sm text-gray-500">Add a new visitor in one-click.</p>
+      </div>
+      <div class="p-6">
+        <form>
+          <div class="grid w-full items-center gap-4">
+            <div class="flex flex-col space-y-1">
+              <label for="firstname" class="text-sm font-medium">Name</label>
+              <input id="firstname" formControlName="name" type="text"
                 class="border rounded px-3 py-2 text-sm w-full" />
             </div>
-            <div class="flex flex-col space-y-1 w-1/3">
-              <label for="ward" class="text-sm font-medium">Time</label>
-              <input id="ward" formControlName="ward_number" type="time"
+
+            <div class="flex items-center space-x-2">
+              <div class="flex flex-col space-y-1 w-2/3">
+                <label for="ward" class="text-sm font-medium">Visit Date</label>
+                <input id="ward" formControlName="ward_number" type="date"
+                  class="border rounded px-3 py-2 text-sm w-full" />
+              </div>
+              <div class="flex flex-col space-y-1 w-1/3">
+                <label for="ward" class="text-sm font-medium">Time</label>
+                <input id="ward" formControlName="ward_number" type="time"
+                  class="border rounded px-3 py-2 text-sm w-full" />
+              </div>
+            </div>
+            <div class="flex flex-col space-y-1">
+              <label for="email" class="text-sm font-medium">National ID</label>
+              <input id="email" placeholder="63-886161z63" formControlName="national_id" type="text"
                 class="border rounded px-3 py-2 text-sm w-full" />
             </div>
-          </div>
-          <div class="flex flex-col space-y-1">
-            <label for="email" class="text-sm font-medium">National ID</label>
-            <input id="email" placeholder="63-886161z63" formControlName="national_id" type="text"
-              class="border rounded px-3 py-2 text-sm w-full" />
-          </div>
-          <div class="flex flex-col space-y-1">
-            <label for="phone" class="text-sm font-medium">Phone Number</label>
-            <input placeholder="+263777 000 000" id="phone" formControlName="phone_number" type="text"
-              class="border rounded px-3 py-2 text-sm w-full" />
-          </div>
-          <!-- <div class="flex flex-col space-y-1">
+            <div class="flex flex-col space-y-1">
+              <label for="phone" class="text-sm font-medium">Phone Number</label>
+              <input placeholder="+263777 000 000" id="phone" formControlName="phone_number" type="text"
+                class="border rounded px-3 py-2 text-sm w-full" />
+            </div>
+            <!-- <div class="flex flex-col space-y-1">
             <label for="framework" class="text-sm font-medium">Framework</label>
             <select id="framework" class="border rounded px-3 py-2 text-sm w-full">
               <option value="" disabled selected>Select</option>
@@ -111,15 +114,28 @@
               <option value="nuxt">Nuxt.js</option>
             </select>
           </div> -->
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
+      <div class="p-4 flex justify-between border-t">
+        <button class="text-sm px-3 py-1 border rounded text-gray-700 hover:bg-gray-50"
+          (click)="showModal=false">Cancel</button>
+        <button
+          class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
+      </div>
     </div>
-    <div class="p-4 flex justify-between border-t">
-      <button class="text-sm px-3 py-1 border rounded text-gray-700 hover:bg-gray-50"
-        (click)="showModal=false">Cancel</button>
-      <button
-        class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
-    </div>
+
   </div>
 
-</div>
+
+  <div class="footer flex justify-between items-center px-2 py-2" style="box-shadow:  2px 1px 1px whitesmoke">
+    <div class="font-semibold">Visitors</div>
+    <div class="cursor-pointer" (click)="openModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" class="lucide lucide-square-plus">
+        <rect width="18" height="18" x="3" y="3" rx="2" />
+        <path d="M8 12h8" />
+        <path d="M12 8v8" />
+      </svg></div>
+  </div>
+</body>
