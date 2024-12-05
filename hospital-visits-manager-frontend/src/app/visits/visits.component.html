@@ -26,7 +26,7 @@
           </div>
           <!-- Search button -->
           <button
-            class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+            class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
             type="submit" (click)=" search_visitor()">SEARCH</button>
         </div>
 
@@ -130,6 +130,26 @@
 
   }
 
+  <!-- Toast Container -->
+  <div id="toast"
+    class="fixed top-5 right-5 z-50  flex items-center space-x-4 p-4 max-w-xs text-white bg-gray-800 rounded-lg shadow-lg">
+    <div class="icon">
+      <!-- You can customize this icon -->
+      <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12l2 2 4-4m-6 4a8 8 0 110-16 8 8 0 010 16z" />
+      </svg>
+    </div>
+    <div class="message flex-1">
+      <p class="text-sm">Your changes have been saved successfully!</p>
+    </div>
+    <button class="close text-gray-400 hover:text-white focus:outline-none" onclick="hideToast()">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
 
 
 </body>
