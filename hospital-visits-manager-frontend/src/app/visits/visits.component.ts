@@ -7,6 +7,7 @@ import {
   FormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { ToastServiceService } from '../toast-service.service';
 
 @Component({
   selector: 'app-visits',
@@ -20,8 +21,13 @@ export class VisitsComponent implements OnInit {
   searched = false;
   form!: FormGroup;
   not_found = false;
+  show = false;
 
-  constructor(private visitService: VisitService, private fb: FormBuilder) {}
+  constructor(
+    private visitService: VisitService,
+    private fb: FormBuilder,
+    private toastService: ToastServiceService
+  ) {}
 
   ngOnInit(): void {
     // this.search_visitor('67-161886z67');
@@ -29,6 +35,11 @@ export class VisitsComponent implements OnInit {
     this.form = this.fb.group({
       visitor_id: [''],
     });
+  }
+
+  showToast(message: any, type: any) {
+    this.show = true;
+    this.toastService.showToast(message, type);
   }
 
   search_visitor() {
