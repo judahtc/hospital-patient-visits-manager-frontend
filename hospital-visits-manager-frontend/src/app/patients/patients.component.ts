@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PatientService } from '../patient.service';
 import { Router } from '@angular/router';
 import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
+import { ToastServiceService } from '../toast-service.service';
 
 @Component({
   selector: 'app-patients',
@@ -15,6 +16,7 @@ export class PatientsComponent implements OnInit {
   data_list: any[] = [];
   len: number = 0;
   itemsPerPage: number = 8;
+  show = false;
   changePage(page: number) {
     this.p = page;
   }
@@ -30,7 +32,9 @@ export class PatientsComponent implements OnInit {
   not_checked = true;
   constructor(
     private patientService: PatientService,
-    private paginationService: PaginationService
+    private paginationService: PaginationService,
+
+    private toastService: ToastServiceService
   ) {}
   ngOnInit(): void {
     this.collection = this.patient;
@@ -150,6 +154,11 @@ export class PatientsComponent implements OnInit {
 
   openModal() {
     this.showModal = true;
+  }
+
+  showToast(message: any, type: any) {
+    this.show = true;
+    this.toastService.showToast(message, type);
   }
 
   closeModal() {
