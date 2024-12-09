@@ -49,13 +49,6 @@ export class PortalComponent implements OnInit {
     this.patients = false;
     this.visits = false;
     this.users = false;
-
-    console.log(this.dashboard);
-    console.log(this.dashboard);
-    console.log(this.dashboard);
-    console.log(this.dashboard);
-    console.log(this.dashboard);
-    console.log(this.dashboard);
   }
 
   patients_func() {
