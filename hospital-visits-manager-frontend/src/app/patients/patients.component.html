@@ -37,7 +37,8 @@
     <div class="flex items-center space-x-1 mr-3">
 
 
-      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed':not_checked}" [disabled]="not_checked"
+      <button (click)="showToast('success', 'success')"
+        [ngClass]="{'opacity-20 disabled:cursor-not-allowed':not_checked}" [disabled]="not_checked"
         class="bg-transparent border border-red-300 rounded-md py-[0.17rem] px-2 text-sm flex items-center space-x-[2px] text-red-500"><svg
           xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -204,5 +205,28 @@
         class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
     </div>
   </div>
+
+
+  <!-- Toast Container -->
+  <div *ngIf="show" id="toast"
+    class="fixed top-5 right-5 z-50  flex items-center space-x-4 p-4 max-w-xs text-white bg-gray-800 rounded-lg shadow-lg">
+    <div class="icon">
+
+      <svg class="w-6 h-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12l2 2 4-4m-6 4a8 8 0 110-16 8 8 0 010 16z" />
+      </svg>
+    </div>
+    <div class="message flex-1">
+      <p class="text-sm">Your changes have been saved successfully!</p>
+    </div>
+    <button class="close text-gray-400 hover:text-white focus:outline-none" onclick="hideToast()">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
 
 </div>
