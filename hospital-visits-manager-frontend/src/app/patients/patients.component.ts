@@ -17,6 +17,7 @@ export class PatientsComponent implements OnInit {
   len: number = 0;
   itemsPerPage: number = 8;
   show = false;
+  success = false;
   changePage(page: number) {
     this.p = page;
   }
@@ -157,6 +158,11 @@ export class PatientsComponent implements OnInit {
   }
 
   showToast(message: any, type: any) {
+    if (type == 'success') {
+      this.success = true;
+    } else {
+      this.success = false;
+    }
     this.show = true;
     this.toastService.showToast(message, type);
   }
