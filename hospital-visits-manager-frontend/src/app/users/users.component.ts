@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './users.component.css',
 })
 export class UsersComponent implements OnInit {
+  not_checked = true;
   constructor() {}
   ngOnInit(): void {}
   users = [
@@ -96,4 +97,30 @@ export class UsersComponent implements OnInit {
       hospital_id: 105,
     },
   ];
+
+  columnNames = Object.keys(this.users[0]);
+
+  onCheckboxChange(event: Event, rowId: any): void {
+    const checkbox = event.target as HTMLInputElement;
+    let selectedIds: number[] = JSON.parse(
+      localStorage.getItem('selectedIds') || '[]'
+    );
+
+    if (checkbox.checked) {
+      if (!selectedIds.includes(rowId)) {
+        selectedIds.push(rowId);
+      }
+    } else {
+      // Remove the ID from localStorage
+      selectedIds = selectedIds.filter((id) => id !== rowId);
+    }
+
+    if (selectedIds.length > 0) {
+      this.not_checked = false;
+    } else {
+      this.not_checked = true;
+    }
+    // Update localStorage
+    localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
+  }
 }

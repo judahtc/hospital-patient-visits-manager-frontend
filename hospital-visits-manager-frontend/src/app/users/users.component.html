@@ -18,3 +18,52 @@
 <div style="background-color: whitesmoke;line-height: 1px;" class="mb-4 mt-4">
   &nbsp;
 </div>
+
+<div class="border border-gray-100 rounded-lg lg:w-[98%] mx-auto container md:w-full sm:w-full mt-3">
+  <table class="main-table w-full text-sm">
+    <thead>
+      <tr class="border-b   border-gray-100 text-left bg-gray-50">
+        <th></th>
+
+        <th class="py-3 px-3 ">{{columnNames[1]}}</th>
+        <th class="py-3 px-3 ">{{columnNames[2]}}</th>
+        <th class="py-3 px-3 ">{{columnNames[3]}}</th>
+        <th class="py-3 px-3 ">{{columnNames[4]}}</th>
+        <th class="py-3 px-3 ">{{columnNames[5]}}</th>
+        <th class="py-3 px-3 ">{{columnNames[8]}}</th>
+        <th class="py-3 px-3 "></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      @for(patient of users;track 1){
+      <tr class="border-b border-gray-100 text-sm bg-white ">
+        <td class="px-3 text-sm py-3">
+          <input type="checkbox" class=" h-4 w-4 " (change)="onCheckboxChange($event, patient.id)">
+
+
+        </td>
+        <td class="px-3 text-sm py-3">{{patient.first_name}}</td>
+        <td class="px-3 text-sm py-3">{{patient.last_name}}</td>
+        <td class="px-3 text-sm py-3">{{patient.email}}</td>
+        <td class="px-3 text-sm py-3">{{patient.phone_number}}</td>
+        <td class="px-3 text-sm py-3">{{patient.role}}</td>
+        <td class="px-3 text-sm py-3">{{patient.is_active}}</td>
+
+
+        <td class="px-3 py-2.5"><button class="bg-transparent text-sm ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+              stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-download">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
+            </svg></button></td>
+
+
+      </tr>}
+    </tbody>
+  </table>
+
+
+</div>
