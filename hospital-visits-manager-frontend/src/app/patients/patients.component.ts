@@ -4,11 +4,12 @@ import { PatientService } from '../patient.service';
 import { Router } from '@angular/router';
 import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 import { ToastServiceService } from '../toast-service.service';
+import { ToastComponent } from '../toast/toast.component';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule, NgxPaginationModule],
+  imports: [CommonModule, NgxPaginationModule, ToastComponent],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css',
 })
@@ -18,6 +19,8 @@ export class PatientsComponent implements OnInit {
   itemsPerPage: number = 8;
   show = false;
   success = false;
+  message: any;
+  type: any;
   changePage(page: number) {
     this.p = page;
   }
@@ -163,6 +166,8 @@ export class PatientsComponent implements OnInit {
     } else {
       this.success = false;
     }
+    this.type = type;
+    this.message = message;
     this.show = true;
     this.toastService.showToast(message, type);
   }

@@ -4,7 +4,7 @@ import { ToastComponent } from '../toast/toast.component';
 @Component({
   selector: 'app-dashboad',
   standalone: true,
-  imports: [ToastComponent],
+  imports: [],
   templateUrl: './dashboad.component.html',
   styleUrl: './dashboad.component.css',
 })
