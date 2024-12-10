@@ -1,12 +1,99 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrl: './users.component.css',
 })
-export class UsersComponent {
-
+export class UsersComponent implements OnInit {
+  constructor() {}
+  ngOnInit(): void {}
+  users = [
+    {
+      id: 1,
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'john.doe@example.com',
+      phone_number: '1234567890',
+      role: 'Admin',
+      created_at: '2024-12-04T10:00:00',
+      updated_at: '2024-12-04T10:00:00',
+      is_active: true,
+      hospital_id: 101,
+    },
+    {
+      id: 2,
+      first_name: 'Jane',
+      last_name: 'Smith',
+      email: 'jane.smith@example.com',
+      phone_number: '0987654321',
+      role: 'Manager',
+      created_at: '2024-12-04T10:10:00',
+      updated_at: '2024-12-04T10:10:00',
+      is_active: true,
+      hospital_id: 102,
+    },
+    {
+      id: 3,
+      first_name: 'Emily',
+      last_name: 'Johnson',
+      email: 'emily.johnson@example.com',
+      phone_number: '5678901234',
+      role: 'Admin',
+      created_at: '2024-12-04T10:20:00',
+      updated_at: '2024-12-04T10:20:00',
+      is_active: true,
+      hospital_id: 101,
+    },
+    {
+      id: 4,
+      first_name: 'Michael',
+      last_name: 'Brown',
+      email: 'michael.brown@example.com',
+      phone_number: '4321098765',
+      role: 'Supervisor',
+      created_at: '2024-12-04T10:30:00',
+      updated_at: '2024-12-04T10:30:00',
+      is_active: false,
+      hospital_id: 103,
+    },
+    {
+      id: 5,
+      first_name: 'Sophia',
+      last_name: 'Davis',
+      email: 'sophia.davis@example.com',
+      phone_number: '6789012345',
+      role: 'Admin',
+      created_at: '2024-12-04T10:40:00',
+      updated_at: '2024-12-04T10:40:00',
+      is_active: true,
+      hospital_id: 102,
+    },
+    {
+      id: 6,
+      first_name: 'James',
+      last_name: 'Wilson',
+      email: 'james.wilson@example.com',
+      phone_number: '9876543210',
+      role: 'Admin',
+      created_at: '2024-12-04T10:50:00',
+      updated_at: '2024-12-04T10:50:00',
+      is_active: true,
+      hospital_id: 104,
+    },
+    {
+      id: 7,
+      first_name: 'Oliver',
+      last_name: 'Taylor',
+      email: 'oliver.taylor@example.com',
+      phone_number: '4567890123',
+      role: 'Admin',
+      created_at: '2024-12-04T11:00:00',
+      updated_at: '2024-12-04T11:00:00',
+      is_active: false,
+      hospital_id: 105,
+    },
+  ];
 }
