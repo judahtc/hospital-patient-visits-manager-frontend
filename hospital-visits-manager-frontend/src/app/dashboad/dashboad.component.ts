@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastComponent } from '../toast/toast.component';
 
 @Component({
   selector: 'app-dashboad',
   standalone: true,
-  imports: [],
+  imports: [ToastComponent],
   templateUrl: './dashboad.component.html',
   styleUrl: './dashboad.component.css',
 })
