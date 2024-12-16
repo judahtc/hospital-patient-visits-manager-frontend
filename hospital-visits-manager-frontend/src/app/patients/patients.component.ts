@@ -21,6 +21,8 @@ export class PatientsComponent implements OnInit {
   success = false;
   message: any;
   type: any;
+  patient: any;
+  columnNames: any;
   changePage(page: number) {
     this.p = page;
   }
@@ -40,17 +42,19 @@ export class PatientsComponent implements OnInit {
 
     private toastService: ToastServiceService
   ) {}
-  ngOnInit(): void {
+  ngOnInit() {
+    this.all_patients();
     this.collection = this.patient;
     this.data_list = [];
     this.len = this.collection.length;
     this.len = this.len / this.itemsPerPage;
+
     this.len = Math.ceil(this.len);
     for (let i = 1; i <= this.len; i++) {
       this.data_list.push(i);
     }
   }
-  patient = [
+  patient_psuedo = [
     {
       id: 1,
       name: 'John Doe',
@@ -152,7 +156,6 @@ export class PatientsComponent implements OnInit {
       checkout_date: '2024-11-22T11:00:00',
     },
   ];
-  columnNames = Object.keys(this.patient[0]);
 
   showModal = false;
 
@@ -170,6 +173,32 @@ export class PatientsComponent implements OnInit {
     this.message = message;
     this.show = true;
     this.toastService.showToast(message, type);
+  }
+
+  all_patients() {
+    this.patientService.get_all_patients().subscribe({
+      next: (res) => {
+        console.log(res);
+        console.log(res);
+        console.log(res);
+        console.log(res);
+        this.patient = res;
+        this.collection = this.patient;
+        this.data_list = [];
+        this.len = this.collection.length;
+        this.len = this.len / this.itemsPerPage;
+        this.len = Math.ceil(this.len);
+
+        this.columnNames = Object.keys(this.patient[0]);
+
+        for (let i = 1; i <= this.len; i++) {
+          this.data_list.push(i);
+        }
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 
   closeModal() {
