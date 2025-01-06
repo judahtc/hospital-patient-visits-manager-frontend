@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-users',
@@ -9,8 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
   not_checked = true;
-  constructor() {}
-  ngOnInit(): void {}
+  all_users: any;
+  constructor(private userService: UsersService) {}
+  ngOnInit(): void {
+    this.read_users();
+  }
   users = [
     {
       id: 1,
@@ -122,5 +126,17 @@ export class UsersComponent implements OnInit {
     }
     // Update localStorage
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
+  }
+
+  read_users() {
+    this.userService.get_all_users().subscribe({
+      next: (res) => {
+        this.all_users = res;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

@@ -37,7 +37,7 @@
       </thead>
       <tbody>
 
-        @for(patient of users;track 1){
+        @for(patient of all_users;track 1){
         <tr class="border-b border-gray-100 text-sm bg-white ">
           <td class="px-3 text-sm py-3">
             <input type="checkbox" class=" h-4 w-4 " (change)="onCheckboxChange($event, patient.id)">
