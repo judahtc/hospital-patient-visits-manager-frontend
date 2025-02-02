@@ -1,21 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { CommonModule } from '@angular/common';
-
+import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
 export class UsersComponent implements OnInit {
+  data_list: any[] = [];
   not_checked = true;
   all_users: any;
   showModal = false;
+
+  data: any[] = [];
+  len: number = 0;
+  itemsPerPage: number = 2;
+  show = false;
+  success = false;
+  message: any;
+
+  type: any;
+  patient: any;
+
+  changePage(page: number) {
+    this.p = page;
+  }
+  collection: any[] = this.data;
+  pageSize: any = 1;
+
+  p: number = 1;
+  columns: any;
+  directionlink = true;
+
   constructor(private userService: UsersService) {}
   ngOnInit(): void {
     this.read_users();
+    this.collection = this.all_users;
+    this.data_list = [];
+    this.len = this.collection.length;
+    this.len = this.len / this.itemsPerPage;
+
+    this.len = Math.ceil(this.len);
+    for (let i = 1; i <= this.len; i++) {
+      this.data_list.push(i);
+    }
   }
   users = [
     {
@@ -137,7 +168,21 @@ export class UsersComponent implements OnInit {
     this.userService.get_all_users().subscribe({
       next: (res) => {
         this.all_users = res;
-        console.log(res);
+
+        this.collection = this.all_users;
+        this.data_list = [];
+        this.len = this.collection.length;
+        this.len = this.len / this.itemsPerPage;
+        this.len = Math.ceil(this.len);
+        console.log(this.len, 'len');
+        console.log(this.len, 'len');
+        console.log(this.len, 'len');
+        console.log(this.len, 'len');
+        this.columnNames = Object.keys(this.all_users[0]);
+        console.log('juju');
+        for (let i = 1; i <= this.len; i++) {
+          this.data_list.push(i);
+        }
       },
       error: (err) => {
         console.log(err);

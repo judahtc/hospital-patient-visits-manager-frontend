@@ -54,108 +54,6 @@ export class PatientsComponent implements OnInit {
       this.data_list.push(i);
     }
   }
-  patient_psuedo = [
-    {
-      id: 1,
-      name: 'John Doe',
-      phone_number: '1234567890',
-      email: 'johndoe@example.com',
-      ward_number: 'A1',
-      room_number: '101',
-      checkin_date: '2024-11-01T10:00:00',
-      checkout_date: '2024-11-10T14:00:00',
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      phone_number: '0987654321',
-      email: 'janesmith@example.com',
-      ward_number: 'B2',
-      room_number: '202',
-      checkin_date: '2024-11-15T08:30:00',
-      checkout_date: null,
-    },
-    {
-      id: 3,
-      name: 'David Johnson',
-      phone_number: '5551234567',
-      email: 'david.johnson@example.com',
-      ward_number: 'C3',
-      room_number: '303',
-      checkin_date: '2024-10-28T12:15:00',
-      checkout_date: '2024-11-05T16:45:00',
-    },
-    {
-      id: 4,
-      name: 'Emily Brown',
-      phone_number: '9876543210',
-      email: 'emily.brown@example.com',
-      ward_number: 'D4',
-      room_number: '404',
-      checkin_date: '2024-11-20T09:00:00',
-      checkout_date: null,
-    },
-    {
-      id: 5,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-    {
-      id: 6,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-    {
-      id: 7,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-    {
-      id: 8,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-    {
-      id: 9,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-    {
-      id: 10,
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-  ];
 
   showModal = false;
 
@@ -178,10 +76,6 @@ export class PatientsComponent implements OnInit {
   all_patients() {
     this.patientService.get_all_patients().subscribe({
       next: (res) => {
-        console.log(res);
-        console.log(res);
-        console.log(res);
-        console.log(res);
         this.patient = res;
         this.collection = this.patient;
         this.data_list = [];
