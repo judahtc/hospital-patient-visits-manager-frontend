@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
 
   data: any[] = [];
   len: number = 0;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 8;
   show = false;
   success = false;
   message: any;
