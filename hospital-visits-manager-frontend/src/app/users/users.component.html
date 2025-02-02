@@ -4,7 +4,8 @@
       Users
     </div>
     <div class="">
-      <button class="bg-[#0f172a] flex items-center space-x-1 text-sm text-white px-2 py-1 rounded-md"> <span>Add</span>
+      <button class="bg-[#0f172a] flex items-center space-x-1 text-sm text-white px-2 py-1 rounded-md"
+        (click)="openModal()"> <span>Add</span>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
           stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus">
@@ -66,6 +67,69 @@
       </tbody>
     </table>
 
+
+  </div>
+
+
+  <div *ngIf="showModal"
+    class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
+    <!-- Modal content -->
+    <div class="w-[92%] md:w-[50%] bg-white shadow-md rounded-md mb-12 mt-3">
+      <div class="p-4 border-b">
+        <h5 class="font-semibold">Add Visitor</h5>
+        <p class="text-sm text-gray-500">Add a new visitor in one-click.</p>
+      </div>
+      <div class="p-6">
+        <form>
+          <div class="grid w-full items-center gap-4">
+            <div class="flex flex-col space-y-1">
+              <label for="firstname" class="text-sm font-medium">Name</label>
+              <input id="firstname" formControlName="name" type="text"
+                class="border rounded px-3 py-2 text-sm w-full" />
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <div class="flex flex-col space-y-1 w-2/3">
+                <label for="ward" class="text-sm font-medium">Visit Date</label>
+                <input id="ward" formControlName="ward_number" type="date"
+                  class="border rounded px-3 py-2 text-sm w-full" />
+              </div>
+              <div class="flex flex-col space-y-1 w-1/3">
+                <label for="ward" class="text-sm font-medium">Time</label>
+                <input id="ward" formControlName="ward_number" type="time"
+                  class="border rounded px-3 py-2 text-sm w-full" />
+              </div>
+            </div>
+            <div class="flex flex-col space-y-1">
+              <label for="email" class="text-sm font-medium">National ID</label>
+              <input id="email" placeholder="63-886161z63" formControlName="national_id" type="text"
+                class="border rounded px-3 py-2 text-sm w-full" />
+            </div>
+            <div class="flex flex-col space-y-1">
+              <label for="phone" class="text-sm font-medium">Phone Number</label>
+              <input placeholder="+263777 000 000" id="phone" formControlName="phone_number" type="text"
+                class="border rounded px-3 py-2 text-sm w-full" />
+            </div>
+            <!-- <div class="flex flex-col space-y-1">
+            <label for="framework" class="text-sm font-medium">Framework</label>
+            <select id="framework" class="border rounded px-3 py-2 text-sm w-full">
+              <option value="" disabled selected>Select</option>
+              <option value="next">Next.js</option>
+              <option value="sveltekit">SvelteKit</option>
+              <option value="astro">Astro</option>
+              <option value="nuxt">Nuxt.js</option>
+            </select>
+          </div> -->
+          </div>
+        </form>
+      </div>
+      <div class="p-4 flex justify-between border-t">
+        <button class="text-sm px-3 py-1 border rounded text-gray-700 hover:bg-gray-50"
+          (click)="showModal=false">Cancel</button>
+        <button
+          class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
+      </div>
+    </div>
 
   </div>
 </body>

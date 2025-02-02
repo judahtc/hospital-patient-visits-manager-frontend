@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
 export class UsersComponent implements OnInit {
   not_checked = true;
   all_users: any;
+  showModal = false;
   constructor(private userService: UsersService) {}
   ngOnInit(): void {
     this.read_users();
@@ -128,6 +130,9 @@ export class UsersComponent implements OnInit {
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
   }
 
+  openModal() {
+    this.showModal = true;
+  }
   read_users() {
     this.userService.get_all_users().subscribe({
       next: (res) => {
