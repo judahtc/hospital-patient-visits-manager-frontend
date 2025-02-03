@@ -9,7 +9,7 @@ export class VisitService {
 
   confirm_patient(patient_id: string) {
     return this.http.get(
-      'http://localhost:8000/visitors/by-national-id/' + patient_id
+      'http://localhost:8002/visitors/by-national-id/' + patient_id
     );
   }
 }

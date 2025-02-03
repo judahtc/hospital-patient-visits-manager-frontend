@@ -14,6 +14,6 @@ export class AuthService {
       params: params,
     };
 
-    return this.http.post('http://localhost:8000/auth/login', body, options);
+    return this.http.post('http://localhost:8002/auth/login', body, options);
   }
 }

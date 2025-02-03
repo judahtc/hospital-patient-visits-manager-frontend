@@ -6,19 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
-  base_url = 'http://localhost:8000//';
+  base_url = 'http://localhost:8002/';
   confirm_patient(patient_id: string) {
     this.http.get(
-      'http://localhost:8000//visitors/by-national-id/' + patient_id
+      'http://localhost:8002/visitors/by-national-id/' + patient_id
     );
   }
 
   get_all_users() {
-    return this.http.get('http://localhost:8000/admin/');
+    return this.http.get('http:/localhost:8002/admin/');
   }
   deletePatient(id: any) {
-    return this.http.get(
-      'http://localhost:8000//visitors/by-national-id/' + id
-    );
+    return this.http.get('http://localhost:8002/visitors/by-national-id/' + id);
   }
 }
