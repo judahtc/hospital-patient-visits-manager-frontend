@@ -14,7 +14,7 @@ export class UsersService {
   }
 
   get_all_users() {
-    return this.http.get('http:/localhost:8002/admin/');
+    return this.http.get('http://localhost:8002/admin/');
   }
   deletePatient(id: any) {
     return this.http.get('http://localhost:8002/visitors/by-national-id/' + id);
