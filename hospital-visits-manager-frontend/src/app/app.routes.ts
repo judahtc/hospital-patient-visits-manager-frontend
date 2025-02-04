@@ -6,9 +6,11 @@ import { PatientsComponent } from './patients/patients.component';
 import { VisitsComponent } from './visits/visits.component';
 import { UsersComponent } from './users/users.component';
 import { VisitorsComponent } from './visitors/visitors.component';
+import { PatientLoginComponent } from './patient-login/patient-login.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'signin', component: PatientLoginComponent },
   { path: 'visitors', component: VisitorsComponent },
   {
     path: 'portal',

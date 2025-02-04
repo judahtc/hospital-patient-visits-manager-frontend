@@ -35,12 +35,7 @@ export class PatientLoginComponent implements OnInit {
     this.authService.login_users(this.form.value, 'admin').subscribe({
       next: (result) => {
         console.log(result);
-        this.router.navigate(['/portal/patients'], {
-          queryParams: {
-            tab: 'patients',
-          },
-          queryParamsHandling: 'merge',
-        });
+        this.router.navigate(['/visitors']);
       },
       error: (error) => {
         if (error.status == 401) {
