@@ -33,6 +33,14 @@ export class VisitorsComponent implements OnInit {
     });
   }
 
+  onSub() {
+    console.log(this.form.value);
+    console.log(this.form.value);
+    console.log(this.form.value);
+    console.log(this.form.value);
+    console.log(this.form.value);
+  }
+
   closeModal() {
     this.showModal = false;
   }
