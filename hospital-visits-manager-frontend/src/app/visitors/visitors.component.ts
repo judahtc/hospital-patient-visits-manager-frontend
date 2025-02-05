@@ -6,6 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { PatientService } from '../patient.service';
 
 @Component({
   selector: 'app-visitors',
@@ -17,7 +18,10 @@ import {
 export class VisitorsComponent implements OnInit {
   // @ts-ignore
   form: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private patientService: PatientService
+  ) {}
   ngOnInit(): void {}
   showModal = false;
 
@@ -36,11 +40,22 @@ export class VisitorsComponent implements OnInit {
   onSub() {
     this.form.value['visit_date'] =
       this.form.value['date'] + ' ' + this.form.value['time'] + ':00.000';
-    console.log(this.form.value);
-    console.log(this.form.value);
-    console.log(this.form.value);
-    console.log(this.form.value);
-    console.log(this.form.value);
+    const visitor = {
+      name: this.form.value['name'],
+      visited: false,
+      visit_date:
+        this.form.value['date'] + ' ' + this.form.value['time'] + ':00.000',
+      national_id: this.form.value['national_id'],
+      patient_id: 1,
+    };
+    this.patientService.add_visitor(visitor).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   closeModal() {
