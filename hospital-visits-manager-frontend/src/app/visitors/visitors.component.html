@@ -12,7 +12,7 @@
   </div>
 
   @if(sidebar)
-  { <div class="sidebar fixed z-50 top-0 right-0 h-[30rem] mt-1 w-60 pt-6   bg-gray-100">
+  { <div class="sidebar block lg:hidden md:hidden fixed z-50 top-0 right-0 h-[30rem] mt-1 w-60 pt-6   bg-gray-100">
 
     <div class="flex items-center justify-between px-3 pb-4">
       <div>
@@ -41,7 +41,7 @@
 
   <div class="flex items-center justify-between mr-4 md:mr-5 text-sm mt-16">
     <div></div>
-    <div (click)="sidebar_toggle()" class="cursor-pointer">
+    <div (click)="sidebar_toggle()" class="cursor-pointer block lg:hidden md:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         class="lucide lucide-menu">
