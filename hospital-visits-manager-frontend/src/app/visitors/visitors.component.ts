@@ -1,18 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-visitors',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './visitors.component.html',
   styleUrl: './visitors.component.css',
 })
-export class VisitorsComponent {
+export class VisitorsComponent implements OnInit {
+  // @ts-ignore
+  form: FormGroup;
+  constructor(private fb: FormBuilder) {}
+  ngOnInit(): void {}
   showModal = false;
 
   openModal() {
     this.showModal = true;
+
+    this.form = this.fb.group({
+      name: [''],
+      visit_date: [''],
+      time: [''],
+      national_id: [''],
+      phone_number: [''],
+    });
   }
 
   closeModal() {
