@@ -16,7 +16,15 @@
     class="sidebar rounded-s-md block lg:hidden md:hidden fixed z-50 top-0 right-0 h-[30rem] mt-1 w-60 pt-6   bg-gray-100">
 
     <div class="flex items-center justify-between px-3 pb-4">
-      <div>
+
+      @if (signout) { <a
+        class="absolute cursor-pointer shadow-md left-9 -top-[0.03rem] bg-slate-200 px-2 py-[0.2rem] rounded-md"
+        href="/">
+        <div>
+          <span class="text-[0.8rem]">Sign Out</span>
+        </div>
+      </a>}
+      <div class="cursor-pointer" (click)="popover()">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           class="lucide lucide-circle-user-round">

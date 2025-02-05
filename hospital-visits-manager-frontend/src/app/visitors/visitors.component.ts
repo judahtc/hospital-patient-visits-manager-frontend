@@ -25,6 +25,7 @@ export class VisitorsComponent implements OnInit {
   ngOnInit(): void {}
   showModal = false;
   sidebar = false;
+  signout = false;
 
   openModal() {
     this.showModal = true;
@@ -65,6 +66,10 @@ export class VisitorsComponent implements OnInit {
 
   closeModal() {
     this.showModal = false;
+  }
+
+  popover() {
+    this.signout = !this.signout;
   }
 
   visitors = [
