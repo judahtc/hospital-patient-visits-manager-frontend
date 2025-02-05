@@ -26,7 +26,7 @@ export class VisitorsComponent implements OnInit {
 
     this.form = this.fb.group({
       name: [''],
-      visit_date: [''],
+      date: [''],
       time: [''],
       national_id: [''],
       phone_number: [''],
@@ -34,6 +34,8 @@ export class VisitorsComponent implements OnInit {
   }
 
   onSub() {
+    this.form.value['visit_date'] =
+      this.form.value['date'] + ' ' + this.form.value['time'] + ':00.000';
     console.log(this.form.value);
     console.log(this.form.value);
     console.log(this.form.value);
