@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit, ViewChild } from '@angular/core';
 import { VisitService } from '../visit.service';
 import { CommonModule } from '@angular/common';
 import {
@@ -8,11 +8,17 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ToastServiceService } from '../toast-service.service';
+import { CustomToastComponent } from '../custom-toast/custom-toast.component';
 
 @Component({
   selector: 'app-visits',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    CustomToastComponent,
+    CustomToastComponent,
+  ],
   templateUrl: './visits.component.html',
   styleUrl: './visits.component.css',
 })
@@ -22,6 +28,8 @@ export class VisitsComponent implements OnInit {
   form!: FormGroup;
   not_found = false;
   show = false;
+  message: string = '';
+  type: string = '';
 
   constructor(
     private visitService: VisitService,
@@ -39,7 +47,8 @@ export class VisitsComponent implements OnInit {
 
   Toast(message: any, type: any) {
     this.show = !this.show;
-    // this.toastService.showToast(message, type);
+    this.message = message;
+    this.type = type;
   }
 
   search_visitor() {
