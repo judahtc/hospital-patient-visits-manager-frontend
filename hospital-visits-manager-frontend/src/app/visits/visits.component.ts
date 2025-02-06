@@ -46,11 +46,13 @@ export class VisitsComponent implements OnInit {
   }
 
   Toast(message: any, type: any) {
-    this.show = !this.show;
+    this.show = true;
     this.message = message;
     this.type = type;
   }
-
+  CloseToast(toast: boolean) {
+    this.show = toast;
+  }
   search_visitor() {
     this.visitService.confirm_patient(this.form.value['visitor_id']).subscribe({
       next: (result) => {

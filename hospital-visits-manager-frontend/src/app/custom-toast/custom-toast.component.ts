@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-custom-toast',
@@ -11,7 +11,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CustomToastComponent implements OnInit {
   @Input() message!: string;
   @Input() status!: string;
+  @Input() clicked!: boolean;
   success: boolean = false;
+  @Output() closeToast = new EventEmitter<boolean>();
 
   ngOnInit(): void {
     if (this.status == 'success') {
@@ -19,5 +21,9 @@ export class CustomToastComponent implements OnInit {
     } else {
       this.success = false;
     }
+  }
+
+  close() {
+    this.closeToast.emit(false);
   }
 }

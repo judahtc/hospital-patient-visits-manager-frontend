@@ -4,7 +4,7 @@
     <div class="bg-gray-50">
       <div class="flex justify-between items-center mx-3  py-3">
         <div>Visitors</div>
-        <div class="cursor-pointer" (click)="Toast('success','success')">check in</div>
+        <div class="cursor-pointer" (click)="Toast('User successfull checked in','success')">check in</div>
       </div>
     </div>
     <div style="background-color: whitesmoke;line-height: 1px;">
@@ -137,5 +137,6 @@
   <!-- Toast Container -->
 
 
-  <app-custom-toast *ngIf="show" [status]="type" [message]="message"></app-custom-toast>
+  <app-custom-toast *ngIf="show" [status]="type" [message]="message"
+    (closeToast)="CloseToast($event)"></app-custom-toast>
 </body>
