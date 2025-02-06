@@ -37,9 +37,9 @@ export class VisitsComponent implements OnInit {
     });
   }
 
-  showToast(message: any, type: any) {
-    this.show = true;
-    this.toastService.showToast(message, type);
+  Toast(message: any, type: any) {
+    this.show = !this.show;
+    // this.toastService.showToast(message, type);
   }
 
   search_visitor() {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -20,7 +20,8 @@ export class VisitorsComponent implements OnInit {
   form: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private elementRef: ElementRef
   ) {}
   ngOnInit(): void {}
   showModal = false;
@@ -38,7 +39,12 @@ export class VisitorsComponent implements OnInit {
       phone_number: [''],
     });
   }
-
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (this.signout && !this.elementRef.nativeElement.contains(event.target)) {
+      this.signout = false;
+    }
+  }
   onSub() {
     this.form.value['visit_date'] =
       this.form.value['date'] + ' ' + this.form.value['time'] + ':00.000';
@@ -68,7 +74,7 @@ export class VisitorsComponent implements OnInit {
     this.showModal = false;
   }
 
-  popover() {
+  popover(event: Event) {
     this.signout = !this.signout;
   }
 

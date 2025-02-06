@@ -4,7 +4,7 @@
     <div class="bg-gray-50">
       <div class="flex justify-between items-center mx-3  py-3">
         <div>Visitors</div>
-        <div class="cursor-pointer" (click)="showToast('success','success')">check in</div>
+        <div class="cursor-pointer" (click)="Toast('success','success')">check in</div>
       </div>
     </div>
     <div style="background-color: whitesmoke;line-height: 1px;">
@@ -148,7 +148,8 @@
     <div class="message flex-1">
       <p class="text-sm">Your changes have been saved successfully!</p>
     </div>
-    <button class="close text-gray-400 hover:text-white focus:outline-none" onclick="hideToast()">
+    <button (click)="Toast('','')" class="close text-gray-400 hover:text-white focus:outline-none"
+      onclick="hideToast()">
       <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
