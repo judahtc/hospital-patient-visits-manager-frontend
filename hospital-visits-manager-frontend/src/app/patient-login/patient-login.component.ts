@@ -4,11 +4,17 @@ import { AuthService } from '../auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CustomToastComponent } from '../custom-toast/custom-toast.component';
 
 @Component({
   selector: 'app-patient-login',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule,
+    CustomToastComponent,
+  ],
   templateUrl: './patient-login.component.html',
   styleUrl: './patient-login.component.css',
 })

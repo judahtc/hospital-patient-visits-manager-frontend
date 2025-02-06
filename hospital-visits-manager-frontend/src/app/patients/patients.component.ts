@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 import { ToastServiceService } from '../toast-service.service';
 import { ToastComponent } from '../toast/toast.component';
+import { CustomToastComponent } from '../custom-toast/custom-toast.component';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule, NgxPaginationModule, ToastComponent],
+  imports: [CommonModule, NgxPaginationModule, CustomToastComponent],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css',
 })
@@ -95,6 +96,21 @@ export class PatientsComponent implements OnInit {
     });
   }
 
+  onsubmit() {
+    this.show = true;
+    const res = false;
+    if (res) {
+      this.type = 'success';
+      this.message = 'Patient added successfully';
+    } else {
+      this.type = 'failed';
+      this.message = 'Patient couldnt be added now, please try again later!!!';
+    }
+  }
+
+  closeToast(toast: boolean) {
+    this.show = toast;
+  }
   closeModal() {
     this.showModal = false;
   }
