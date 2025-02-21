@@ -41,7 +41,8 @@ export class PatientsComponent implements OnInit {
     private patientService: PatientService,
     private paginationService: PaginationService,
 
-    private toastService: ToastServiceService
+    private toastService: ToastServiceService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.all_patients();
@@ -106,6 +107,10 @@ export class PatientsComponent implements OnInit {
       this.type = 'failed';
       this.message = 'Patient couldnt be added now, please try again later!!!';
     }
+  }
+
+  routeToPatient(email: string) {
+    this.router.navigate(['portal/patient/' + email]);
   }
 
   closeToast(toast: boolean) {
