@@ -7,6 +7,7 @@ import { VisitsComponent } from './visits/visits.component';
 import { UsersComponent } from './users/users.component';
 import { VisitorsComponent } from './visitors/visitors.component';
 import { PatientLoginComponent } from './patient-login/patient-login.component';
+import { PatientComponent } from './patient/patient.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,6 +27,11 @@ export const routes: Routes = [
         path: 'patients',
         component: PatientsComponent,
         data: { breadcrumb: 'patients' },
+      },
+      {
+        path: 'patient/:id',
+        component: PatientComponent,
+        data: { breadcrumb: ':id' },
       },
       {
         path: 'visits',
