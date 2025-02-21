@@ -19,6 +19,9 @@ export class PatientService {
   add_visitor(body: object) {
     return this.http.post('http://localhost:8002/visitors/', body);
   }
+  add_patient(body: object) {
+    return this.http.post('http://localhost:8002/visitors/', body);
+  }
   deletePatient(id: any) {
     return this.http.get('http://localhost:8002/visitors/by-national-id/' + id);
   }
