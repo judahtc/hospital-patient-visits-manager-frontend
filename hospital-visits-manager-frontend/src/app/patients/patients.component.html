@@ -84,15 +84,17 @@
   <table class="main-table w-full text-sm">
     <thead>
       <tr class="border-b   border-gray-100 text-left bg-gray-50">
+
         <th></th>
+        <th class="py-3 px-3 ">Email</th>
+        <th class="py-3 px-3 ">name</th>
+        <th class="py-3 px-3 ">Phone</th>
+        <th class="py-3 px-3 ">ward</th>
+        <th class="py-3 px-3 ">room</th>
+        <th class="py-3 px-3 ">checkin date</th>
+        <th class="py-3 px-3 ">checkout date</th>
+        <!-- <th class="py-3 px-3 ">{{columnNames[6]}}</th> -->
         <th></th>
-        <th class="py-3 px-3 ">{{columnNames[0]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[1]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[2]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[3]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[4]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[5]}}</th>
-        <th class="py-3 px-3 ">{{columnNames[6]}}</th>
       </tr>
     </thead>
     <tbody>
@@ -104,10 +106,9 @@
 
 
         </td>
+        <td class="px-3 text-sm py-3 underline cursor-pointer">{{patient.email}}</td>
         <td class="px-3 text-sm py-3">{{patient.name}}</td>
         <td class="px-3 text-sm py-3">{{patient.phone_number}}</td>
-
-        <td class="px-3 text-sm py-3 underline cursor-pointer">{{patient.email}}</td>
         <td class="px-3 text-sm py-3">{{patient.ward_number}}</td>
         <td class="px-3 text-sm py-3">{{patient.room_number}}</td>
         <td class="px-3 text-sm py-3">{{patient.checkin_date.split("T")[0]}}</td>
