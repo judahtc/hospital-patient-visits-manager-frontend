@@ -6,11 +6,19 @@ import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 import { ToastServiceService } from '../toast-service.service';
 import { ToastComponent } from '../toast/toast.component';
 import { CustomToastComponent } from '../custom-toast/custom-toast.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule, NgxPaginationModule, CustomToastComponent],
+  imports: [
+    CommonModule,
+    NgxPaginationModule,
+    CustomToastComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css',
 })
@@ -20,10 +28,12 @@ export class PatientsComponent implements OnInit {
   itemsPerPage: number = 8;
   show = false;
   success = false;
+
   message: any;
   type: any;
   patient: any;
   columnNames: any;
+  added: boolean = false;
   changePage(page: number) {
     this.p = page;
   }
@@ -37,14 +47,27 @@ export class PatientsComponent implements OnInit {
   collection: any[] = this.data;
 
   not_checked = true;
+
+  // @ts-ignore
+  form: FormGroup;
   constructor(
     private patientService: PatientService,
     private paginationService: PaginationService,
-
+    private fb: FormBuilder,
     private toastService: ToastServiceService,
     private router: Router
   ) {}
   ngOnInit() {
+    this.form = this.fb.group({
+      first_name: [],
+      last_name: [],
+      email: [],
+      phone_number: [],
+      next_of_kin_email: [],
+      ward_number: [],
+      room_number: [],
+    });
+
     this.all_patients();
     this.collection = this.patient;
     this.data_list = [];
@@ -98,9 +121,18 @@ export class PatientsComponent implements OnInit {
   }
 
   onsubmit() {
-    this.show = true;
-    const res = false;
-    if (res) {
+    this.patientService.add_patient(this.form.value).subscribe({
+      next: (result) => {
+        this.show = true;
+        this.added = true;
+      },
+      error: (error) => {
+        this.show = true;
+        this.added = false;
+      },
+    });
+
+    if (this.added) {
       this.type = 'success';
       this.message = 'Patient added successfully';
     } else {
