@@ -26,6 +26,6 @@ export class PatientService {
     return this.http.post('http://localhost:8002/patients/', body);
   }
   deletePatient(id: any) {
-    return this.http.get('http://localhost:8002/visitors/by-national-id/' + id);
+    return this.http.delete('http://localhost:8002/patients/' + id);
   }
 }
