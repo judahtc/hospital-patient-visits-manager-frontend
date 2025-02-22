@@ -72,7 +72,7 @@
     </div>
     <div class="flex flex-col items-center">
       <span># Of visitors</span>
-      <span>3</span>
+      <span>{{patient.patient_visitors.length}}</span>
     </div>
 
     <div class="flex flex-col items-start">
@@ -103,7 +103,9 @@
 </div>
 
 <hr class="mt-8 border-gray-50 ">
-<div class="border border-gray-100 mx-16 mt-5 rounded ">
+
+<div class="mx-[4.2rem] mt-5 font-bold">Visitors</div>
+<div class="border border-gray-100 mx-16 mt-3 rounded ">
   <div class="flex font-bold">
     <div class="border-b border-gray-100 w-full py-2 px-3">Name </div>
     <div class="border-b border-gray-100 w-full py-2 px-3">National ID </div>
@@ -114,7 +116,36 @@
   <div class="flex">
     <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.name}} </div>
     <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.patient_id}} </div>
-    <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.visited}} </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3">@if(visitor.visited){
+      <span class="flex space-x-1 items-end">
+        <span> Yes</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-circle-check">
+          <circle cx="12" cy="12" r="10" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+
+      </span>}@else{
+
+      <span class="flex space-x-1 items-end">
+        <span> Pending</span>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-clock-arrow-up">
+          <path d="M13.228 21.925A10 10 0 1 1 21.994 12.338" />
+          <path d="M12 6v6l1.562.781" />
+          <path d="m14 18 4-4 4 4" />
+          <path d="M18 22v-8" />
+        </svg>
+
+
+      </span>
+
+
+      }
+    </div>
   </div>
   }
 </div>
