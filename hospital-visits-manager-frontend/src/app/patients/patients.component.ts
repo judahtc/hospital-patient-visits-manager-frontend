@@ -33,6 +33,8 @@ export class PatientsComponent implements OnInit {
   type: any;
   patient: any;
   columnNames: any;
+  deleteButton = false;
+
   added: boolean = false;
   changePage(page: number) {
     this.p = page;
@@ -84,6 +86,19 @@ export class PatientsComponent implements OnInit {
 
   openModal() {
     this.showModal = true;
+  }
+
+  onConfirmChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+
+    console.log(inputValue);
+    console.log(inputValue);
+    console.log(inputValue);
+    if (inputValue == 'confirm delete') {
+      this.deleteButton = true;
+    } else {
+      this.deleteButton = false;
+    }
   }
 
   showToast(message: any, type: any) {
