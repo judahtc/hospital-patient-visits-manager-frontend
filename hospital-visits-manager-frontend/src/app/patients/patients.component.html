@@ -205,28 +205,27 @@
 
 </div>
 <div *ngIf="showConfirmDeleteModal"
-  class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
-  <!-- Modal content -->
-  <div class="w-[550px] bg-white shadow-md rounded-md mb-12 mt-14">
+  class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-start z-50">
+
+  <div class="w-[550px] bg-white shadow-md rounded-md mb-12 mt-7">
     <div class="p-4 border-b">
-      <h2 class="text-lg font-semibold">Are you Sure you want to delete the selected Patients?</h2>
-      <p class="text-sm text-gray-500">Add a new patient in one-click.</p>
+      <h2 class="text-base font-semibold">Are you Sure you want to delete the selected Patients?</h2>
     </div>
     <div class="p-6">
+      <p class="text-sm text-gray-500">Type <b>confirm delete</b> to completely delete the selected patients</p>
+      <div class="flex flex-col space-y-1">
+
+        <input id="confirm" formControlName="confirm" type="text" class="border rounded px-3 py-2 text-sm" />
+      </div>
 
     </div>
     <div class="p-4 flex justify-between border-t">
       <button class="text-sm px-3 py-1 border rounded text-gray-700 hover:bg-gray-50"
         (click)="showModal=false">Cancel</button>
       <button (click)="onsubmit()"
-        class="text-sm px-3 py-1 bg-black text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Submit</button>
+        class="text-sm px-3 py-1 bg-red-400 text-white rounded hover:bg-transparent hover:text-black hover:outline-offset-1 hover:outline hover:ring-1">Delete</button>
     </div>
   </div>
-
-
-
-
-
 </div>
 
 
