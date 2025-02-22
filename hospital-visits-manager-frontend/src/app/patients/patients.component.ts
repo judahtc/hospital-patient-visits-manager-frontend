@@ -37,6 +37,7 @@ export class PatientsComponent implements OnInit {
   domtdeleteButton = true;
 
   added: boolean = false;
+  cant_edit = true;
   changePage(page: number) {
     this.p = page;
   }
@@ -198,6 +199,14 @@ export class PatientsComponent implements OnInit {
     } else {
       this.not_checked = true;
     }
+    if (selectedIds.length > 1) {
+      this.cant_edit = true;
+      console.log('More than 2');
+    } else {
+      this.cant_edit = false;
+      console.log('less than 2');
+    }
+
     // Update localStorage
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
   }

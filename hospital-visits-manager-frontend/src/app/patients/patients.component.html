@@ -61,8 +61,8 @@
           <path d="m9 11 6 6" />
         </svg> <span>Discharge</span></button>
 
-      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':not_checked}"
-        [disabled]="not_checked"
+      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':cant_edit}"
+        [disabled]="cant_edit"
         class="bg-transparent border border-gray-100 rounded-md py-1 px-2 text-sm flex items-center space-x-[2px]">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -71,7 +71,7 @@
           <path
             d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
           <path d="M8 18h1" />
-        </svg> <span> Edit </span></button>
+        </svg> <span> View </span></button>
 
     </div>
   </div>
@@ -80,20 +80,20 @@
 
   </div>
 </div>
-<div class="border border-gray-100 rounded-lg lg:w-[94.5%] mx-auto container md:w-full sm:w-full mt-3">
+<div class="border border-gray-50 rounded-md lg:w-[94.5%] mx-auto container md:w-full sm:w-full mt-3">
   <table class="main-table w-full text-sm">
     <thead>
       <tr class="border-b   border-gray-100 text-left bg-gray-50">
 
         <th></th>
-        <th class="py-3 px-3 ">Email</th>
-        <th class="py-3 px-3 ">name</th>
-        <th class="py-3 px-3 ">Phone</th>
-        <th class="py-3 px-3 ">ward</th>
-        <th class="py-3 px-3 ">room</th>
-        <th class="py-3 px-3 ">checkin date</th>
-        <th class="py-3 px-3 ">checkout date</th>
-        <!-- <th class="py-3 px-3 ">{{columnNames[6]}}</th> -->
+        <th class="py-2 px-3 ">Email</th>
+        <th class="py-2 px-3 ">name</th>
+        <th class="py-2 px-3 ">Phone</th>
+        <th class="py-2 px-3 ">ward</th>
+        <th class="py-2 px-3 ">room</th>
+        <th class="py-2 px-3 ">checkin date</th>
+        <th class="py-2 px-3 ">checkout date</th>
+        <!-- <th class="py-2 px-3 ">{{columnNames[6]}}</th> -->
         <th></th>
       </tr>
     </thead>
@@ -225,7 +225,7 @@
       <button [disabled]="!deleteButton" (click)="delete_user()" [ngClass]="{
           'text-sm px-3 py-1 rounded  bg-red-400 text-white': true,
           'cursor-pointer opacity-100': deleteButton,
-          'opacity-20': domtdeleteButton
+          'cursor-not-allowed opacity-20': domtdeleteButton
       }">
         Delete
       </button>
