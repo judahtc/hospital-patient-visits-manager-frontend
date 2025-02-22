@@ -127,19 +127,28 @@ export class PatientsComponent implements OnInit {
       next: (result) => {
         this.added = true;
         this.show = true;
+
+        this.toast();
       },
       error: (error) => {
         this.added = false;
         this.show = true;
+
+        this.toast();
       },
     });
+  }
 
+  toast() {
     if (this.added) {
       this.type = 'success';
       this.message = 'Patient added successfully';
+
+      console.log('type A ' + this.type);
     } else {
       this.type = 'failed';
       this.message = 'Patient couldnt be added now, please try again later!!!';
+      console.log('type B ' + this.type);
     }
   }
 
