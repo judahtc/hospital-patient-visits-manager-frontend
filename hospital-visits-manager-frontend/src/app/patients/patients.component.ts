@@ -172,6 +172,9 @@ export class PatientsComponent implements OnInit {
   routeToPatient(email: string) {
     this.router.navigate(['portal/patient/' + email]);
   }
+  ViewPatient(email: string) {
+    this.router.navigate(['portal/patient/' + email]);
+  }
 
   closeToast(toast: boolean) {
     this.show = toast;
