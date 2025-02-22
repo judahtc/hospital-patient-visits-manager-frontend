@@ -51,45 +51,45 @@
 </div>
 
 <hr class="mb-8 mt-3 border-gray-50 ">
-<div class="mx-16 mt-10 space-y-8">
+<div class="mx-16 mt-10 space-y-8 text-sm">
   <div class="row flex items-start justify-between">
     <div class="flex flex-col items-start ">
       <span>Patient Email</span>
-      <span>{{patient.email}}</span>
+      <span class="text-gray-400 text-sm">{{patient.email}}</span>
     </div>
 
     <div class="flex flex-col items-center">
       <span>Ward</span>
-      <span>{{patient.ward_number}}</span>
+      <span class="text-gray-400 text-sm">{{patient.ward_number}}</span>
     </div>
     <div class="flex flex-col items-center">
       <span>Room</span>
-      <span>{{patient.room_number}}</span>
+      <span class="text-gray-400 text-sm">{{patient.room_number}}</span>
     </div>
 
     <div class="flex flex-col items-start">
       <span>Checkout date</span>
-      <span>{{patient.checkout_date}}</span>
+      <span class="text-gray-400 text-sm">{{patient.checkout_date}}</span>
     </div>
   </div>
   <div class="row flex items-start justify-between">
     <div class="flex flex-col items-start ">
       <span>Next of Kin</span>
-      <span>{{patient.next_of_kin_email}}</span>
+      <span class="text-gray-400 text-sm">{{patient.next_of_kin_email}}</span>
     </div>
 
     <div class="flex flex-col items-center">
       <span>Gender</span>
-      <span>F</span>
+      <span class="text-gray-400 text-sm">F</span>
     </div>
     <div class="flex flex-col items-center">
       <span># Of visitors</span>
-      <span>{{patient.patient_visitors.length}}</span>
+      <span class="text-gray-400 text-sm">{{patient.patient_visitors.length}}</span>
     </div>
 
     <div class="flex flex-col items-start">
       <span>Checkin date</span>
-      <span>{{patient.checkin_date}}</span>
+      <span class="text-gray-400 text-sm">{{patient.checkin_date}}</span>
     </div>
   </div>
 </div>
@@ -98,32 +98,60 @@
 
 
 
-<div class="contact mx-[3.5rem] mt-8 flex space-x-4 items-center">
+<div class="contact mx-[3.5rem] mt-8 flex items-center justify-between ">
+  <div class="flex space-x-1 items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact-round">
+      <path d="M16 2v2" />
+      <path d="M17.915 22a6 6 0 0 0-12 0" />
+      <path d="M8 2v2" />
+      <circle cx="12" cy="12" r="4" />
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+    </svg>
 
-  <svg xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact-round">
-    <path d="M16 2v2" />
-    <path d="M17.915 22a6 6 0 0 0-12 0" />
-    <path d="M8 2v2" />
-    <circle cx="12" cy="12" r="4" />
-    <rect x="3" y="4" width="18" height="18" rx="2" />
-  </svg>
 
-  <div class="flex flex-col items-start text-[13px]">
-    <span class="bg-gray-50 px-2 rounded ">Ping</span>
-    <span> 📱+263785 430 774</span>
-    <span>✉️ {{email}}</span>
+
+    <div class="flex flex-col items-start text-[13px]">
+      <span class="bg-gray-50 px-2 rounded ">Ping</span>
+      <span> 📱+263785 430 774</span>
+      <span>✉️ {{email}}</span>
+    </div>
+  </div>
+
+  <div class="visitors_per_day border border-gray-100 rounded-md px-2 py-2 flex items-center space-x-2 shadow-sm">
+    <div class="bg-gray-50 p-4 rounded-[0.25rem]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-calendar-cog">
+        <path d="m15.2 16.9-.9-.4" />
+        <path d="m15.2 19.1-.9.4" />
+        <path d="M16 2v4" />
+        <path d="m16.9 15.2-.4-.9" />
+        <path d="m16.9 20.8-.4.9" />
+        <path d="m19.5 14.3-.4.9" />
+        <path d="m19.5 21.7-.4-.9" />
+        <path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6" />
+        <path d="m21.7 16.5-.9.4" />
+        <path d="m21.7 19.5-.9-.4" />
+        <path d="M3 10h18" />
+        <path d="M8 2v4" />
+        <circle cx="18" cy="18" r="3" />
+      </svg>
+    </div>
+    <div class="flex flex-col items-start"><span class="font-semibold">25</span><span
+        style="font-size: 80%;color: #e4e4e4;">AVG Visitors/Day</span></div>
   </div>
 </div>
 
 <hr class="mt-8 border-gray-50 ">
 @if(patient.patient_visitors.length>0){
 <div class="mx-[4.2rem] mt-5 font-bold">Visitors</div>
-<div class="border border-gray-100 mx-16 mt-3 rounded ">
+<div class="border border-gray-100 mx-16 mt-3 rounded text-sm">
   <div class="flex font-bold">
     <div class="border-b border-gray-100 w-full py-2 px-3">Name </div>
     <div class="border-b border-gray-100 w-full py-2 px-3">National ID </div>
     <div class="border-b border-gray-100 w-full py-2 px-3">Visited? </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3"></div>
   </div>
   @for (visitor of patient.patient_visitors; track 1) {
 
@@ -159,6 +187,18 @@
 
       }
     </div>
+
+    <div class="border-b cursor-pointer border-gray-100 w-full py-2 px-3"><svg xmlns="http://www.w3.org/2000/svg"
+        width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-sliders">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+        <path d="M8 12h8" />
+        <path d="M10 11v2" />
+        <path d="M8 17h8" />
+        <path d="M14 16v2" />
+      </svg></div>
+
   </div>
   }
 </div>
