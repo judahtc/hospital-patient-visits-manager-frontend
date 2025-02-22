@@ -28,12 +28,13 @@ export class PatientsComponent implements OnInit {
   itemsPerPage: number = 8;
   show = false;
   success = false;
-  showConfirmDeleteModal: boolean = true;
+  showConfirmDeleteModal: boolean = false;
   message: any;
   type: any;
   patient: any;
   columnNames: any;
   deleteButton = false;
+  domtdeleteButton = true;
 
   added: boolean = false;
   changePage(page: number) {
@@ -91,13 +92,12 @@ export class PatientsComponent implements OnInit {
   onConfirmChange(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
 
-    console.log(inputValue);
-    console.log(inputValue);
-    console.log(inputValue);
     if (inputValue == 'confirm delete') {
       this.deleteButton = true;
+      this.domtdeleteButton = false;
     } else {
       this.deleteButton = false;
+      this.domtdeleteButton = true;
     }
   }
 
@@ -202,6 +202,10 @@ export class PatientsComponent implements OnInit {
     localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
   }
   delete_user() {
+    this.deleteButton = false;
+    this.show = false;
+    this.type = '';
+    this.message = '';
     let user_ids = JSON.parse(localStorage.getItem('selectedIds') || '[]'); // Parse the IDs from localStorage
 
     if (Array.isArray(user_ids) && user_ids.length > 0) {
@@ -209,10 +213,15 @@ export class PatientsComponent implements OnInit {
         this.patientService.deletePatient(id).subscribe({
           next: (res) => {
             console.log(`Deleted user with ID`);
-
+            this.message = 'successfully deleted  patient with id:' + id;
+            this.type = 'success';
+            this.show = true;
             localStorage.setItem('selectedIds', '');
           },
           error: (err) => {
+            this.message = 'failed to delete patient with id:' + id;
+            this.type = 'failed';
+            this.show = true;
             console.error(`Failed to delete user with ID`);
           },
         });

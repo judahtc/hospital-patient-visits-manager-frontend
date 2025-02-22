@@ -37,7 +37,7 @@
     <div class="flex items-center space-x-1 mr-3">
 
 
-      <button (click)="delete_user()" [ngClass]="{'opacity-20 disabled:cursor-not-allowed':not_checked}"
+      <button (click)="showConfirmDeleteModal=true" [ngClass]="{'opacity-20 disabled:cursor-not-allowed':not_checked}"
         [disabled]="not_checked"
         class="bg-transparent border border-red-300 rounded-md py-[0.17rem] px-2 text-sm flex items-center space-x-[2px] text-red-500"><svg
           xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -215,17 +215,17 @@
       <p class="text-sm text-gray-500">Type <b>confirm delete</b> to completely delete the selected patients</p>
       <div class="flex flex-col space-y-1">
 
-        <input id="confirm" (input)="onConfirmChange($event)" formControlName="confirm" type="text"
-          class="border rounded px-3 py-2 text-sm" />
+        <input id="confirm" (input)="onConfirmChange($event)" type="text" class="border rounded px-3 py-2 text-sm" />
       </div>
 
     </div>
     <div class="p-4 flex justify-between border-t">
-      <button class="text-sm px-3 py-1 border rounded text-gray-700 " (click)="showModal=false">Cancel</button>
-      <button [disabled]="!deleteButton" (click)="onsubmit()" [ngClass]="{
+      <button class="text-sm px-3 py-1 border rounded text-gray-700 "
+        (click)="showConfirmDeleteModal=false">Cancel</button>
+      <button [disabled]="!deleteButton" (click)="delete_user()" [ngClass]="{
           'text-sm px-3 py-1 rounded  bg-red-400 text-white': true,
           'cursor-pointer opacity-100': deleteButton,
-          'opacity-20': !deleteButton
+          'opacity-20': domtdeleteButton
       }">
         Delete
       </button>
