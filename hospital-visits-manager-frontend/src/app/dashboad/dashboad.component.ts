@@ -1,62 +1,71 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PatientService } from '../patient.service';
+import { Router } from '@angular/router';
+import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
+import { ToastServiceService } from '../toast-service.service';
 import { ToastComponent } from '../toast/toast.component';
+import { CustomToastComponent } from '../custom-toast/custom-toast.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboad',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './dashboad.component.html',
   styleUrl: './dashboad.component.css',
 })
 export class DashboadComponent implements OnInit {
-  ngOnInit(): void {}
-  patient = [
-    {
-      name: 'John Doe',
-      phone_number: '1234567890',
-      email: 'johndoe@example.com',
-      ward_number: 'A1',
-      room_number: '101',
-      checkin_date: '2024-11-01T10:00:00',
-      checkout_date: '2024-11-10T14:00:00',
-    },
-    {
-      name: 'Jane Smith',
-      phone_number: '0987654321',
-      email: 'janesmith@example.com',
-      ward_number: 'B2',
-      room_number: '202',
-      checkin_date: '2024-11-15T08:30:00',
-      checkout_date: null,
-    },
-    {
-      name: 'David Johnson',
-      phone_number: '5551234567',
-      email: 'david.johnson@example.com',
-      ward_number: 'C3',
-      room_number: '303',
-      checkin_date: '2024-10-28T12:15:00',
-      checkout_date: '2024-11-05T16:45:00',
-    },
-    {
-      name: 'Emily Brown',
-      phone_number: '9876543210',
-      email: 'emily.brown@example.com',
-      ward_number: 'D4',
-      room_number: '404',
-      checkin_date: '2024-11-20T09:00:00',
-      checkout_date: null,
-    },
-    {
-      name: 'Michael White',
-      phone_number: '1230984567',
-      email: 'michael.white@example.com',
-      ward_number: 'E5',
-      room_number: '505',
-      checkin_date: '2024-11-18T14:20:00',
-      checkout_date: '2024-11-22T11:00:00',
-    },
-  ];
+  data_list: any[] = [];
+  len: number = 0;
+  itemsPerPage: number = 8;
+  show = false;
+  success = false;
 
-  columnNames = Object.keys(this.patient[0]);
+  message: any;
+  type: any;
+  patient: any;
+  columnNames: any;
+  added: boolean = false;
+
+  constructor(
+    private patientService: PatientService,
+    private paginationService: PaginationService,
+    private fb: FormBuilder,
+    private toastService: ToastServiceService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.all_patients();
+  }
+  all_patients() {
+    this.patientService.get_all_patients().subscribe({
+      next: (res) => {
+        this.patient = res;
+
+        this.data_list = [];
+
+        this.len = this.len / this.itemsPerPage;
+        this.len = Math.ceil(this.len);
+
+        this.columnNames = Object.keys(this.patient[0]);
+
+        for (let i = 1; i <= this.len; i++) {
+          this.data_list.push(i);
+        }
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+
+  routeToPatient(email: string) {
+    this.router.navigate(['portal/patient/' + email]);
+  }
 }
