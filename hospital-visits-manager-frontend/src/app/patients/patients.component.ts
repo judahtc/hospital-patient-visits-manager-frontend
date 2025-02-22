@@ -123,18 +123,19 @@ export class PatientsComponent implements OnInit {
   onsubmit() {
     console.log(this.form.value);
     this.added = false;
+    this.show = false;
     this.patientService.add_patient(this.form.value).subscribe({
       next: (result) => {
         this.added = true;
-        this.show = true;
 
         this.toast();
+        this.show = true;
       },
       error: (error) => {
         this.added = false;
-        this.show = true;
 
         this.toast();
+        this.show = true;
       },
     });
   }
