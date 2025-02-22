@@ -101,3 +101,12 @@
     <span>✉️ {{email}}</span>
   </div>
 </div>
+
+<hr class="mt-8 border-gray-50 ">
+
+@for (visitor of patient.patient_visitors; track 1) {
+
+<div class="mx-16">
+  <div class="border-b border-gray-100 w-full">{{visitor.name}} </div>
+</div>
+}
