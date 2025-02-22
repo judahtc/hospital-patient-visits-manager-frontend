@@ -71,7 +71,7 @@ export class PatientsComponent implements OnInit {
     this.all_patients();
     this.collection = this.patient;
     this.data_list = [];
-    this.len = this.collection.length;
+    this.len = this.collection?.length;
     this.len = this.len / this.itemsPerPage;
 
     this.len = Math.ceil(this.len);
@@ -194,6 +194,9 @@ export class PatientsComponent implements OnInit {
         this.patientService.deletePatient(id).subscribe({
           next: (res) => {
             console.log(`Deleted user with ID`);
+
+            const selectedIds = user_ids.filter((id) => id !== id);
+            localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
           },
           error: (err) => {
             console.error(`Failed to delete user with ID`);
