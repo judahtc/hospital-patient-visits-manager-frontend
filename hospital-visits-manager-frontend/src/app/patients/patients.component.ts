@@ -28,7 +28,7 @@ export class PatientsComponent implements OnInit {
   itemsPerPage: number = 8;
   show = false;
   success = false;
-
+  showConfirmDeleteModal: boolean = true;
   message: any;
   type: any;
   patient: any;
@@ -195,8 +195,7 @@ export class PatientsComponent implements OnInit {
           next: (res) => {
             console.log(`Deleted user with ID`);
 
-            const selectedIds = user_ids.filter((id) => id !== id);
-            localStorage.setItem('selectedIds', JSON.stringify(selectedIds));
+            localStorage.setItem('selectedIds', '');
           },
           error: (err) => {
             console.error(`Failed to delete user with ID`);
