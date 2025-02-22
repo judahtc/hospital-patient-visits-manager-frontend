@@ -101,7 +101,8 @@
 
         @for(patient of patient;track 1){
         <tr class="border-b border-gray-100 text-sm bg-white ">
-          <td class="px-3 text-sm py-3">{{patient.email}}</td>
+          <td class="px-3 text-sm py-3 cursor-pointer underline" (click)="routeToPatient(patient.email)">
+            {{patient.email}}</td>
           <td class="px-3 text-sm py-3">{{patient.name}}</td>
           <td class="px-3 text-sm py-3">{{patient.phone_number}}</td>
 
