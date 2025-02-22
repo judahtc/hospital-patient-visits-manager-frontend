@@ -31,7 +31,7 @@ export const routes: Routes = [
       {
         path: 'patient/:id',
         component: PatientComponent,
-        data: { breadcrumb: ':id' },
+        data: { breadcrumb: 'patient' },
       },
       {
         path: 'visits',

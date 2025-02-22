@@ -43,27 +43,27 @@
   <div class="row flex items-start justify-between">
     <div class="flex flex-col items-start ">
       <span>Patient Name</span>
-      <span>Juloh</span>
+      <span>{{patient.name}}</span>
     </div>
 
     <div class="flex flex-col items-center">
       <span>Ward</span>
-      <span>A</span>
+      <span>{{patient.ward_number}}</span>
     </div>
     <div class="flex flex-col items-center">
       <span>Room</span>
-      <span>3</span>
+      <span>{{patient.room_number}}</span>
     </div>
 
     <div class="flex flex-col items-start">
       <span>Checkout date</span>
-      <span>2025-05-14</span>
+      <span>{{patient.checkout_date}}</span>
     </div>
   </div>
   <div class="row flex items-start justify-between">
     <div class="flex flex-col items-start ">
       <span>Next of Kin</span>
-      <span>Julohatgmail.com</span>
+      <span>{{patient.next_of_kin_email}}</span>
     </div>
 
     <div class="flex flex-col items-center">
@@ -77,7 +77,7 @@
 
     <div class="flex flex-col items-start">
       <span>Checkin date</span>
-      <span>2025-05-12</span>
+      <span>{{patient.checkin_date}}</span>
     </div>
   </div>
 </div>
