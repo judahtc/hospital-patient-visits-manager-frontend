@@ -47,6 +47,8 @@ export class DashboadComponent implements OnInit {
     this.patientService.get_all_patients().subscribe({
       next: (res) => {
         this.patient = res;
+        console.log(res);
+        this.patient = this.patient.slice(0, 7);
 
         this.data_list = [];
 
