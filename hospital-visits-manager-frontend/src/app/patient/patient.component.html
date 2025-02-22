@@ -103,10 +103,18 @@
 </div>
 
 <hr class="mt-8 border-gray-50 ">
+<div class="border border-gray-100 mx-16 mt-5 rounded ">
+  <div class="flex font-bold">
+    <div class="border-b border-gray-100 w-full py-2 px-3">Name </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3">National ID </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3">Visited? </div>
+  </div>
+  @for (visitor of patient.patient_visitors; track 1) {
 
-@for (visitor of patient.patient_visitors; track 1) {
-
-<div class="mx-16">
-  <div class="border-b border-gray-100 w-full">{{visitor.name}} </div>
+  <div class="flex">
+    <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.name}} </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.patient_id}} </div>
+    <div class="border-b border-gray-100 w-full py-2 px-3">{{visitor.visited}} </div>
+  </div>
+  }
 </div>
-}
