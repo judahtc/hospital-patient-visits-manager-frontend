@@ -148,7 +148,8 @@ export class PatientsComponent implements OnInit {
         this.show = true;
       },
       error: (error) => {
-        if (error.error.status == 404) {
+        console.log(error);
+        if (error.error.status == 400) {
           this.message = 'Patient already exist!!!';
         } else {
           this.message =
