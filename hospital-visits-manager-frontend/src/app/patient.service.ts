@@ -19,6 +19,9 @@ export class PatientService {
   get_patient(email: string) {
     return this.http.get('http://localhost:8002/patients/' + email);
   }
+  get_patient_by_id(id: number) {
+    return this.http.get('http://localhost:8002/patients/patient/' + id);
+  }
   add_visitor(body: object) {
     return this.http.post('http://localhost:8002/visitors/', body);
   }
