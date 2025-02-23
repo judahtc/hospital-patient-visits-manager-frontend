@@ -148,6 +148,12 @@ export class PatientsComponent implements OnInit {
         this.show = true;
       },
       error: (error) => {
+        if (error.error.status == 404) {
+          this.message = 'Patient already exist!!!';
+        } else {
+          this.message =
+            'Patient couldnt be added now, please try again later!!!';
+        }
         this.added = false;
 
         this.toast();
@@ -164,7 +170,7 @@ export class PatientsComponent implements OnInit {
       console.log('type A ' + this.type);
     } else {
       this.type = 'failed';
-      this.message = 'Patient couldnt be added now, please try again later!!!';
+      this.message = this.message;
       console.log('type B ' + this.type);
     }
   }
