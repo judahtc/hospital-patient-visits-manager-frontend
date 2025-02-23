@@ -61,8 +61,8 @@
           <path d="m9 11 6 6" />
         </svg> <span>Discharge</span></button>
 
-      <button [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':cant_edit}"
-        [disabled]="cant_edit"
+      <button (click)="fetchUserEmail()"
+        [ngClass]="{'opacity-20 disabled:cursor-not-allowed disabled:border-gray-300':cant_edit}" [disabled]="cant_edit"
         class="bg-transparent border border-gray-100 rounded-md py-1 px-2 text-sm flex items-center space-x-[2px]">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"

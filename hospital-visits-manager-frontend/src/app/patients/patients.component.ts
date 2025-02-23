@@ -179,6 +179,17 @@ export class PatientsComponent implements OnInit {
   routeToPatient(email: string) {
     this.router.navigate(['portal/patient/' + email]);
   }
+
+  fetchUserEmail() {
+    const id: number[] = JSON.parse(
+      localStorage.getItem('selectedIds') || '[]'
+    );
+
+    this.patientService.get_patient_by_id(id[0]).subscribe((res: any) => {
+      const email: string = res.email;
+      this.ViewPatient(email);
+    });
+  }
   ViewPatient(email: string) {
     this.router.navigate(['portal/patient/' + email]);
   }
