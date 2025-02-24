@@ -33,4 +33,5 @@ export class PatientService {
   }
 
   AdminSec() {}
+  AuditTrail() {}
 }
