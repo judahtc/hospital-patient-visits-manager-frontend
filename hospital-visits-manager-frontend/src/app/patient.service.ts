@@ -31,4 +31,6 @@ export class PatientService {
   deletePatient(id: any) {
     return this.http.delete('http://localhost:8002/patients/' + id);
   }
+
+  AdminSec() {}
 }
