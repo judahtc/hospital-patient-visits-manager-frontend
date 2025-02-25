@@ -12,6 +12,7 @@ import { PatientService } from '../patient.service';
 export class PatientComponent implements OnInit {
   email: string = '';
   patient: any;
+
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService
