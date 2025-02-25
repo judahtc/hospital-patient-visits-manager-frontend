@@ -153,9 +153,14 @@
 <div *ngIf="showModal"
   class="fixed top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
   <!-- Modal content -->
+
+
   <div class="w-[550px] bg-white shadow-md rounded-md mb-12 mt-14">
     <div class="p-4 border-b">
-      <h2 class="text-lg font-semibold">Add Patient</h2>
+      <div>
+        <h2 class="text-lg font-semibold">Add Patient</h2>
+        <div class="absolute top-3 right-3">x</div>
+      </div>
       <p class="text-sm text-gray-500">Add a new patient in one-click.</p>
     </div>
     <div class="p-6">
