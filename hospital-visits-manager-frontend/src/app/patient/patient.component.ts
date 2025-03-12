@@ -34,33 +34,27 @@ export class PatientComponent implements OnInit {
     });
   }
 
-  delete_user() {
+  delete_user(id: any) {
     this.deleteButton = false;
     this.show = false;
     this.type = '';
     this.message = '';
     let user_ids = JSON.parse(localStorage.getItem('selectedIds') || '[]'); // Parse the IDs from localStorage
 
-    if (Array.isArray(user_ids) && user_ids.length > 0) {
-      user_ids.forEach((id) => {
-        this.patientService.deletePatient(id).subscribe({
-          next: (res) => {
-            console.log(`Deleted user with ID`);
-            this.message = 'successfully deleted  patient with id:' + id;
-            this.type = 'success';
-            this.show = true;
-            localStorage.setItem('selectedIds', '');
-          },
-          error: (err) => {
-            this.message = 'failed to delete patient with id:' + id;
-            this.type = 'failed';
-            this.show = true;
-            console.error(`Failed to delete user with ID`);
-          },
-        });
-      });
-    } else {
-      console.warn('No user IDs found to delete.');
-    }
+    this.patientService.deletePatient(id).subscribe({
+      next: (res) => {
+        console.log(`Deleted user with ID`);
+        this.message = 'successfully deleted  patient with id:' + id;
+        this.type = 'success';
+        this.show = true;
+        localStorage.setItem('selectedIds', '');
+      },
+      error: (err) => {
+        this.message = 'failed to delete patient with id:' + id;
+        this.type = 'failed';
+        this.show = true;
+        console.error(`Failed to delete user with ID`);
+      },
+    });
   }
 }
