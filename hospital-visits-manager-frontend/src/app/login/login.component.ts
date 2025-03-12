@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         console.log(result);
         this.router.navigate(['dashboard'], {
           queryParams: {
-            tab: 'patients',
+            tab: 'dashboard',
           },
           queryParamsHandling: 'merge',
         });
