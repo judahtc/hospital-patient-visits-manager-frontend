@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login_users(this.form.value, 'admin').subscribe({
       next: (result) => {
         console.log(result);
-        this.router.navigate(['/portal/patients'], {
+        this.router.navigate(['dashboard'], {
           queryParams: {
             tab: 'patients',
           },
