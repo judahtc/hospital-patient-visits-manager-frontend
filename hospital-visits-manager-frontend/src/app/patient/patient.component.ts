@@ -57,6 +57,7 @@ export class PatientComponent implements OnInit {
         console.error(`Failed to delete user with ID`);
         console.error(`Failed to delete user with ID`);
         console.error(`Failed to delete user with ID`);
+        console.error(`Failed to delete user with ID`);
       },
     });
   }
