@@ -71,6 +71,7 @@ export class PatientsComponent implements OnInit {
       ward_number: [],
       room_number: [],
     });
+
     localStorage.setItem('selectedIds', '');
     this.all_patients();
     this.collection = this.patient;
